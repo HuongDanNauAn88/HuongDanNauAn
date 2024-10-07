@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
+    android:background="#DBFFF7"
     tools:context="fragment.AccountFragment">
 
     <LinearLayout
@@ -19,7 +20,7 @@
             android:orientation="horizontal"
             android:padding="16dp"
             android:background="?attr/selectableItemBackground"
-            android:gravity="center">
+            >
 
             <ImageView
                 android:id="@+id/profile_image"
@@ -42,17 +43,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="BaoBaoShop"
-                    android:textStyle="bold"
-                    android:textSize="26sp"
                     android:textColor="@android:color/black"
-                    tools:ignore="HardcodedText"/>
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    tools:ignore="HardcodedText" />
 
                 <TextView
                     android:id="@+id/user_email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="admin@gmail.com"
-                    android:textSize="22sp"
+                    android:textSize="20sp"
                     android:textColor="@android:color/darker_gray"
                     tools:ignore="HardcodedText"/>
 
@@ -64,27 +65,136 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:padding="8dp">
+            android:padding="16dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="#fff"
                 android:orientation="vertical">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Tùy chọn tài khoản"
+                    android:text="Hoạt động"
                     android:textSize="22sp"
                     android:textStyle="bold"
+                    android:paddingHorizontal="16dp"
                     android:layout_marginBottom="8dp"
                     android:textColor="@android:color/black"/>
 
                 <LinearLayout
+                    android:id="@+id/CNMonAnYeuThich"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
+                    android:background="#fff"
+                    android:padding="12dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/icon_love"
+                        android:contentDescription="Edit Profile"
+                        android:layout_marginEnd="16dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Món ăn yêu thích"
+                        android:textSize="18sp"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"/>
+
+                <LinearLayout
+                    android:id="@+id/CNTinTucDaLuu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="#fff"
+                    android:padding="12dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/icon_save"
+                        android:contentDescription="Settings"
+                        android:layout_marginEnd="16dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tin tức đã lưu"
+                        android:textSize="18sp"/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@android:color/darker_gray"/>
+
+                <LinearLayout
+                    android:id="@+id/CNBinhLuanCuaToi"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="#fff"
+                    android:padding="12dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/icon_comment"
+                        android:contentDescription="Settings"
+                        android:layout_marginEnd="16dp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bình luận của tôi"
+                        android:textSize="18sp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- Các tùy chọn tài khoản -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#fff"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tùy chọn tài khoản"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    android:paddingHorizontal="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:textColor="@android:color/black"/>
+
+                <LinearLayout
+                    android:id="@+id/CNChinhSuaThongTin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="#fff"
                     android:padding="12dp">
 
                     <ImageView
@@ -107,36 +217,12 @@
                     android:background="@android:color/darker_gray"/>
 
                 <LinearLayout
+                    android:id="@+id/CNDangXuat"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center_vertical"
-                    android:padding="12dp">
-
-                    <ImageView
-                        android:layout_width="24dp"
-                        android:layout_height="24dp"
-                        android:src="@drawable/icon_setting"
-                        android:contentDescription="Settings"
-                        android:layout_marginEnd="16dp"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Cài đặt tài khoản"
-                        android:textSize="18sp"/>
-                </LinearLayout>
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="@android:color/darker_gray"/>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center_vertical"
+                    android:background="#fff"
                     android:padding="12dp">
 
                     <ImageView

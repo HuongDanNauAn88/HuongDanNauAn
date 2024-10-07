@@ -3,10 +3,12 @@ package com.example.huongdannauan.fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.example.huongdannauan.R;
 
@@ -16,6 +18,7 @@ import com.example.huongdannauan.R;
  * create an instance of this fragment.
  */
 public class AccountFragment extends Fragment {
+    LinearLayout cnMonAnYeuThich, cnTinTucDaLuu, cnBinhLuanCuaToi, cnChinhSuaThongTin, cnDangXuat;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,6 +64,31 @@ public class AccountFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_account, container, false);
+        View view = inflater.inflate(R.layout.fragment_account, container, false);
+
+        cnMonAnYeuThich = view.findViewById(R.id.CNMonAnYeuThich);
+        cnTinTucDaLuu = view.findViewById(R.id.CNTinTucDaLuu);
+        cnBinhLuanCuaToi = view.findViewById(R.id.CNBinhLuanCuaToi);
+        cnChinhSuaThongTin = view.findViewById(R.id.CNChinhSuaThongTin);
+        cnDangXuat = view.findViewById(R.id.CNDangXuat);
+
+        openFragmentOfUser(cnMonAnYeuThich, new MonAnYeuThichFragment());
+        openFragmentOfUser(cnTinTucDaLuu, new TinTucDaLuuFragment());
+        openFragmentOfUser(cnBinhLuanCuaToi, new BinhLuanCuaToiFragment());
+        openFragmentOfUser(cnChinhSuaThongTin, new ChinhSuaThongTinFragment());
+        openFragmentOfUser(cnDangXuat, new NoAccountFragment());
+
+        return view;
+    }
+    void openFragmentOfUser(LinearLayout linearLayout, Fragment fragment){
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment_container, fragment); // fragment_container là id của container chứa fragment
+                transaction.addToBackStack(null); // Thêm vào back stack để có thể quay lại FirstFragment
+                transaction.commit();
+            }
+        });
     }
 }

@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -103,22 +104,22 @@ public class HomeFragment extends Fragment {
                     @Override
                     public void onItemClick(Recipe recipe) {
                         // Xử lí chuyển fragment
-//                        // Chuyển đến DetailFragment và truyền dữ liệu
-//                        DetailFragment detailFragment = new DetailFragment();
-//
-//                        // Tạo bundle để truyền dữ liệu
-//                        Bundle bundle = new Bundle();
-//                        bundle.putString("food_name", food.getName());
-//                        bundle.putString("food_description", food.getDescription());
-//                        // Thêm bất kỳ thông tin nào cần thiết
-//
-//                        detailFragment.setArguments(bundle);
-//
-//                        // Thực hiện chuyển fragment
-//                        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-//                        transaction.replace(R.id.fragment_container, detailFragment);
-//                        transaction.addToBackStack(null); // Thêm vào back stack để có thể quay lại HomeFragment
-//                        transaction.commit();
+                        // Chuyển đến DetailFragment và truyền dữ liệu
+                        ChiTietMonAnFragment detailFragment = new ChiTietMonAnFragment();
+
+                        // Tạo bundle để truyền dữ liệu
+                        Bundle bundle = new Bundle();
+                        bundle.putString("TitleMonAn", recipe.getTitle());
+                        bundle.putInt("IdMonAn", recipe.getId());
+                        // Thêm bất kỳ thông tin nào cần thiết
+
+                        detailFragment.setArguments(bundle);
+
+                        // Thực hiện chuyển fragment
+                        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                        transaction.replace(R.id.fragment_container, detailFragment);
+                        transaction.addToBackStack(null); // Thêm vào back stack để có thể quay lại HomeFragment
+                        transaction.commit();
                     }
                 });
                 recyclerView.setAdapter(recipeAdapter);
