@@ -3,10 +3,13 @@ package com.example.huongdannauan.fragment;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.huongdannauan.R;
 
@@ -16,6 +19,7 @@ import com.example.huongdannauan.R;
  * create an instance of this fragment.
  */
 public class DangNhapFragment extends Fragment {
+    TextView dangKy;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,6 +65,20 @@ public class DangNhapFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_dang_nhap, container, false);
+        View view = inflater.inflate(R.layout.fragment_dang_nhap, container, false);
+        dangKy = (TextView) view.findViewById(R.id.txtDK);
+        openFragmentOfUser(dangKy, new DangKyFragment());
+        return view;
+    }
+    void openFragmentOfUser(TextView textView, Fragment fragment){
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+                transaction.replace(R.id.fragment_container, fragment); // fragment_container là id của container chứa fragment
+                transaction.addToBackStack(null); // Thêm vào back stack để có thể quay lại FirstFragment
+                transaction.commit();
+            }
+        });
     }
 }

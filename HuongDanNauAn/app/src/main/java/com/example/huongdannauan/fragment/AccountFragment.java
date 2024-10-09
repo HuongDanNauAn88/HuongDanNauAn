@@ -76,7 +76,7 @@ public class AccountFragment extends Fragment {
         openFragmentOfUser(cnTinTucDaLuu, new TinTucDaLuuFragment());
         openFragmentOfUser(cnBinhLuanCuaToi, new BinhLuanCuaToiFragment());
         openFragmentOfUser(cnChinhSuaThongTin, new ChinhSuaThongTinFragment());
-        openFragmentOfUser(cnDangXuat, new NoAccountFragment());
+        openFragmentOfUser(cnDangXuat, new DangNhapFragment());
 
         return view;
     }

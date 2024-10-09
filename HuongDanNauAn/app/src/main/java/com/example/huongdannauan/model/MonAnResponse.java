@@ -3,17 +3,17 @@ package com.example.huongdannauan.model;
 import java.util.List;
 
 public class MonAnResponse {
-    private List<Recipe> results;
+    private List<MonAn> results;
     private int offset;
     private int number;
     private int totalResults;
 
     // Getter và Setter
-    public List<Recipe> getResults() {
+    public List<MonAn> getResults() {
         return results;
     }
 
-    public void setResults(List<Recipe> results) {
+    public void setResults(List<MonAn> results) {
         this.results = results;
     }
 

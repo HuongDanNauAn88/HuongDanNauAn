@@ -4,31 +4,29 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.huongdannauan.R;
-import com.example.huongdannauan.model.Recipe;
+import com.example.huongdannauan.model.MonAn;
 
 import java.util.List;
 
 public class AdapterMonAnRecycleView extends RecyclerView.Adapter<AdapterMonAnRecycleView.RecipeViewHolder>{
     private Context context;
-    private List<Recipe> recipes;
+    private List<MonAn> monAns;
     private OnItemClickListener listener;
     public interface OnItemClickListener {
-        void onItemClick(Recipe recipe);
+        void onItemClick(MonAn monAn);
     }
 
-    public AdapterMonAnRecycleView(Context context, List<Recipe> recipes, OnItemClickListener listener) {
+    public AdapterMonAnRecycleView(Context context, List<MonAn> monAns, OnItemClickListener listener) {
         this.context = context;
-        this.recipes = recipes;
+        this.monAns = monAns;
         this.listener = listener;
     }
 
@@ -41,23 +39,23 @@ public class AdapterMonAnRecycleView extends RecyclerView.Adapter<AdapterMonAnRe
 
     @Override
     public void onBindViewHolder(@NonNull RecipeViewHolder holder, int position) {
-        Recipe recipe = recipes.get(position);
-        holder.textViewTitle.setText(recipe.getTitle());
+        MonAn monAn = monAns.get(position);
+        holder.textViewTitle.setText(monAn.getTitle());
         Glide.with(context)
-                .load(recipe.getImage())
+                .load(monAn.getImage())
                 .into(holder.imageViewRecipe);
         // Gán sự kiện click cho mỗi item
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                listener.onItemClick(recipe);
+                listener.onItemClick(monAn);
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return recipes.size();
+        return monAns.size();
     }
 
     public static class RecipeViewHolder extends RecyclerView.ViewHolder {

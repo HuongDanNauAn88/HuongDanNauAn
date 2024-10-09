@@ -17,7 +17,7 @@ import android.view.ViewGroup;
 import com.example.huongdannauan.R;
 import com.example.huongdannauan.adapter.AdapterMonAnRecycleView;
 import com.example.huongdannauan.model.MonAnResponse;
-import com.example.huongdannauan.model.Recipe;
+import com.example.huongdannauan.model.MonAn;
 import com.example.huongdannauan.model.TienIch;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -97,20 +97,20 @@ public class HomeFragment extends Fragment {
                 MonAnResponse recipeResponse = gson.fromJson(result, MonAnResponse.class);
 
                 // Lấy danh sách công thức
-                List<Recipe> recipes = recipeResponse.getResults();
+                List<MonAn> monAns = recipeResponse.getResults();
 
                 // Thiết lập Adapter cho RecyclerView
-                recipeAdapter = new AdapterMonAnRecycleView(getContext(), recipes, new AdapterMonAnRecycleView.OnItemClickListener() {
+                recipeAdapter = new AdapterMonAnRecycleView(getContext(), monAns, new AdapterMonAnRecycleView.OnItemClickListener() {
                     @Override
-                    public void onItemClick(Recipe recipe) {
+                    public void onItemClick(MonAn monAn) {
                         // Xử lí chuyển fragment
                         // Chuyển đến DetailFragment và truyền dữ liệu
                         ChiTietMonAnFragment detailFragment = new ChiTietMonAnFragment();
 
                         // Tạo bundle để truyền dữ liệu
                         Bundle bundle = new Bundle();
-                        bundle.putString("TitleMonAn", recipe.getTitle());
-                        bundle.putInt("IdMonAn", recipe.getId());
+                        bundle.putString("TitleMonAn", monAn.getTitle());
+                        bundle.putInt("IdMonAn", monAn.getId());
                         // Thêm bất kỳ thông tin nào cần thiết
 
                         detailFragment.setArguments(bundle);
@@ -144,12 +144,12 @@ public class HomeFragment extends Fragment {
                 MonAnResponse recipeResponse = gson.fromJson(result, MonAnResponse.class);
 
                 // Lấy danh sách công thức
-                List<Recipe> recipes = recipeResponse.getResults();
+                List<MonAn> monAns = recipeResponse.getResults();
 
                 // Thiết lập Adapter cho RecyclerView
-                recipeAdapter2 = new AdapterMonAnRecycleView(getContext(), recipes, new AdapterMonAnRecycleView.OnItemClickListener() {
+                recipeAdapter2 = new AdapterMonAnRecycleView(getContext(), monAns, new AdapterMonAnRecycleView.OnItemClickListener() {
                     @Override
-                    public void onItemClick(Recipe recipe) {
+                    public void onItemClick(MonAn monAn) {
                         // Xử lí chuyển fragment
                     }
                 });
