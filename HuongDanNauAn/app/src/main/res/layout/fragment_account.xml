@@ -42,7 +42,7 @@
                     android:id="@+id/user_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="BaoBaoShop"
+                    android:text="User"
                     android:textColor="@android:color/black"
                     android:textSize="30sp"
                     android:textStyle="bold"
@@ -52,7 +52,7 @@
                     android:id="@+id/user_email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="admin@gmail.com"
+                    android:text="user123@gmail.com"
                     android:textSize="20sp"
                     android:textColor="@android:color/darker_gray"
                     tools:ignore="HardcodedText"/>
