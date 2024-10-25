@@ -9,12 +9,7 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <!-- Banner -->
-
-    <!-- Thanh tìm kiếm và nút tìm kiếm -->
-
-    <!-- Tiêu đề cho ListView ngang -->
-
+<!--    Thanh tìm kiếm -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -82,7 +77,7 @@
 
                 <!-- ListView ngang (RecyclerView) -->
                 <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/recyclerViewHome"
+                    android:id="@+id/recyclerViewHome1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -103,7 +98,7 @@
                     android:layout_marginBottom="8dp"
                     android:paddingHorizontal="8dp"
                     android:paddingVertical="8dp"
-                    android:text="Món ăn nổi bật"
+                    android:text="Món ăn Việt Nam"
                     android:textColor="#333"
                     android:textSize="26sp"
                     android:textStyle="bold"  />
