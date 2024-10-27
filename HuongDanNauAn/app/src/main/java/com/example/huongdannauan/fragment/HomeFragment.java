@@ -100,93 +100,53 @@ public class HomeFragment extends Fragment {
         recyclerView1 = view.findViewById(R.id.recyclerViewHome1);
         recyclerView2 = view.findViewById(R.id.recyclerViewHome2);
 
-        // Thiết lập ProgressDialog riêng cho mỗi RecyclerView
-        ProgressDialog progressDialog1 = new ProgressDialog(getContext());
-        progressDialog1.setMessage("Loading featured recipes...");
-        progressDialog1.show();
-
-        ProgressDialog progressDialog2 = new ProgressDialog(getContext());
-        progressDialog2.setMessage("Loading Vietnamese recipes...");
-        progressDialog2.show();
-
         // Cài đặt RecyclerView 1 - Món ăn Nổi bật
         recyclerView1.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
+        recyclerView2.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         recipeList1 = new ArrayList<>();
+        recipeList2 = new ArrayList<>();
         recipeAdapter1 = new RecipeAdapter(recipeList1, getContext(), recipeId -> {
             openRecipeDetailFragment(recipeId);
         });
+        recipeAdapter2 = new RecipeAdapter(recipeList2, getContext(), recipeId -> {
+            openRecipeDetailFragment(recipeId);
+        });
         recyclerView1.setAdapter(recipeAdapter1);
+        recyclerView2.setAdapter(recipeAdapter2);
 
         databaseReference1 = FirebaseDatabase.getInstance().getReference("recipes");
 
-        // Lấy dữ liệu cho RecyclerView 1
-        databaseReference1.limitToFirst(10).addListenerForSingleValueEvent(new ValueEventListener() {
+        // Lấy dữ liệu cho RecyclerView
+        databaseReference1.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 recipeList1.clear();
-
+                recipeList2.clear();
                 for (DataSnapshot recipeSnapshot : dataSnapshot.getChildren()) {
                     try {
                         Recipe recipe = recipeSnapshot.getValue(Recipe.class);
-                        if (recipe != null) {
+                        if (recipeList1.size()<10 && recipe != null) {
                             recipeList1.add(recipe);
+                        }
+                        if (recipeList2.size()<10 && recipe != null && recipe.getCuisines() != null && recipe.getCuisines().contains("Việt Nam")) {
+                            recipeList2.add(recipe);
+                        }
+                        if (recipeList1.size() == 10 && recipeList2.size()==10) {
+                            break;
                         }
                     } catch (DatabaseException e) {
                         Log.e("FirebaseError", "Error deserializing data", e);
                     }
                 }
 
-                // Cập nhật Adapter và ẩn ProgressDialog
+                // Cập nhật Adapter
                 recipeAdapter1.notifyDataSetChanged();
-                progressDialog1.dismiss();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getContext(), "Failed to load data", Toast.LENGTH_SHORT).show();
-                progressDialog1.dismiss();
-            }
-        });
-
-        // Cài đặt RecyclerView 2 - Món ăn Việt Nam
-        recyclerView2.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
-        recipeList2 = new ArrayList<>();
-        recipeAdapter2 = new RecipeAdapter(recipeList2, getContext(), recipeId -> {
-            openRecipeDetailFragment(recipeId);
-        });
-        recyclerView2.setAdapter(recipeAdapter2);
-
-        databaseReference2 = FirebaseDatabase.getInstance().getReference("recipes");
-
-        // Lấy dữ liệu cho RecyclerView 2
-        databaseReference2.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                recipeList2.clear();
-                int count = 0;
-
-                for (DataSnapshot recipeSnapshot : dataSnapshot.getChildren()) {
-                    Recipe recipe = recipeSnapshot.getValue(Recipe.class);
-
-                    if (recipe != null && recipe.getCuisines() != null && recipe.getCuisines().contains("Việt Nam")) {
-                        recipeList2.add(recipe);
-                        count++;
-                    }
-
-                    if (count == 10) {
-                        break;
-                    }
-                }
-
-                // Cập nhật Adapter và ẩn ProgressDialog
                 recipeAdapter2.notifyDataSetChanged();
-                progressDialog2.dismiss();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Toast.makeText(getContext(), "Failed to load data", Toast.LENGTH_SHORT).show();
-                progressDialog2.dismiss();
             }
         });
 

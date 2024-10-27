@@ -18,9 +18,18 @@ public class Recipe {
     private List<String> dishTypes;
     private List<Ingredient> extendedIngredients;
     private List<Comment> comments;
+    private List<Instruction> analyzedInstructions;
 
     public Recipe() {
         // Required empty constructor for Firebase
+    }
+
+    public List<Instruction> getAnalyzedInstructions() {
+        return analyzedInstructions;
+    }
+
+    public void setAnalyzedInstructions(List<Instruction> analyzedInstructions) {
+        this.analyzedInstructions = analyzedInstructions;
     }
 
     // Getters và Setters
