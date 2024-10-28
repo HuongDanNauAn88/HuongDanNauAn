@@ -184,11 +184,11 @@ public class ChiTietMonAnFragment extends Fragment {
         }
 
 
-        if(recipe.getComments()!= null){
-            recyclerViewComment.setLayoutManager(new LinearLayoutManager(getContext()));
-            adapter = new CommentAdapter(recipe.getComments(), getContext());
-            recyclerViewComment.setAdapter(adapter);
-        }
+//        if(recipe.getComments()!= null){
+//            recyclerViewComment.setLayoutManager(new LinearLayoutManager(getContext()));
+//            adapter = new CommentAdapter(recipe.getComments(), getContext());
+//            recyclerViewComment.setAdapter(adapter);
+//        }
 
 
     }

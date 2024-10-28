@@ -131,7 +131,7 @@ public class HomeFragment extends Fragment {
                         if (recipeList2.size()<10 && recipe != null && recipe.getCuisines() != null && recipe.getCuisines().contains("Việt Nam")) {
                             recipeList2.add(recipe);
                         }
-                        if (recipeList1.size() == 10 && recipeList2.size()==10) {
+                        if (recipeList1.size()==10 && recipeList2.size()==10) {
                             break;
                         }
                     } catch (DatabaseException e) {

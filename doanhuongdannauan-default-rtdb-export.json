@@ -1,34 +1,6 @@
 {
   "recipes": {
     "37513": {
-      "comments": [
-        {
-          "content": "Món này rất ngon và dễ làm. Tôi đã thử và cảm thấy rất hài lòng!",
-          "date": "2024-10-17",
-          "likes": 10,
-          "replies": [
-            {
-              "content": "Đồng ý, tôi cũng thấy món này dễ làm và ngon.",
-              "date": "2024-10-18",
-              "likes": 5,
-              "userId": 2
-            },
-            {
-              "content": "Tôi thấy hơi ngọt, lần sau sẽ thử giảm đường.",
-              "date": "2024-10-18",
-              "likes": 3,
-              "userId": 3
-            }
-          ],
-          "userId": 1
-        },
-        {
-          "content": "Hương vị đậm đà nhưng tôi thích cay hơn một chút.",
-          "date": "2024-10-16",
-          "likes": 7,
-          "userId": 2
-        }
-      ],
       "cookingMinutes": 0,
       "cuisines": [
         "Nhật Bản",
@@ -16258,5 +16230,35 @@
       "name": "Tài",
       "tintucdaluu": ""
     }
-  ]
+  ],
+  "comments": {
+    "37513": [
+      {
+        "content": "Món này rất ngon và dễ làm. Tôi đã thử và cảm thấy rất hài lòng!",
+        "date": "2024-10-17",
+        "likes": 10,
+        "replies": [
+          {
+            "content": "Đồng ý, tôi cũng thấy món này dễ làm và ngon.",
+            "date": "2024-10-18",
+            "likes": 5,
+            "userId": 2
+          },
+          {
+            "content": "Tôi thấy hơi ngọt, lần sau sẽ thử giảm đường.",
+            "date": "2024-10-18",
+            "likes": 3,
+            "userId": 3
+          }
+        ],
+        "userId": 1
+      },
+      {
+        "content": "Hương vị đậm đà nhưng tôi thích cay hơn một chút.",
+        "date": "2024-10-16",
+        "likes": 7,
+        "userId": 2
+      }
+    ]
+  }
 }

@@ -7,12 +7,22 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.huongdannauan.fragment.AccountFragment;
 import com.example.huongdannauan.fragment.HomeFragment;
+import com.example.huongdannauan.model.Recipe;
+import com.example.huongdannauan.model.TienIch;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseException;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -52,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
                 return loadFragment(selectedFragment);
             }
         });
+
     }
 
     private boolean loadFragment(Fragment fragment) {

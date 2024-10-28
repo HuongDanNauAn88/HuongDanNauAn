@@ -17,7 +17,6 @@ public class Recipe {
     private List<String> cuisines;
     private List<String> dishTypes;
     private List<Ingredient> extendedIngredients;
-    private List<Comment> comments;
     private List<Instruction> analyzedInstructions;
 
     public Recipe() {
@@ -113,11 +112,4 @@ public class Recipe {
         this.extendedIngredients = extendedIngredients;
     }
 
-    public List<Comment> getComments() {
-        return comments;
-    }
-
-    public void setComments(List<Comment> comments) {
-        this.comments = comments;
-    }
 }
