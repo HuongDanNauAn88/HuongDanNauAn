@@ -8,7 +8,6 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -16,21 +15,19 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import com.example.huongdannauan.MainActivity;
 import com.example.huongdannauan.R;
 import com.example.huongdannauan.adapter.RecipeAdapter;
 import com.example.huongdannauan.model.Recipe;
-import com.example.huongdannauan.model.TienIch;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -89,12 +86,19 @@ public class HomeFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        // Ẩn bàn phím
+
     }
 
     @SuppressLint("MissingInflatedId")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+        ProgressBar progressBar1 = view.findViewById(R.id.progressBar1);
+        progressBar1.setVisibility(View.VISIBLE);
+        ProgressBar progressBar2 = view.findViewById(R.id.progressBar2);
+        progressBar2.setVisibility(View.VISIBLE);
 
         // Gắn ID
         recyclerView1 = view.findViewById(R.id.recyclerViewHome1);
@@ -134,8 +138,14 @@ public class HomeFragment extends Fragment {
                         if (recipeList1.size()==10 && recipeList2.size()==10) {
                             break;
                         }
+
+                        progressBar1.setVisibility(View.GONE);
+                        progressBar2.setVisibility(View.GONE);
+
                     } catch (DatabaseException e) {
                         Log.e("FirebaseError", "Error deserializing data", e);
+                        progressBar1.setVisibility(View.GONE);
+                        progressBar2.setVisibility(View.GONE);
                     }
                 }
 

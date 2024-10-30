@@ -4,7 +4,7 @@ public class Reply {
     private String content;
     private String date;
     private int likes;
-    private int userId;
+    private String userEmail;
 
     public Reply() {
         // Required empty constructor for Firebase
@@ -20,6 +20,11 @@ public class Reply {
     public int getLikes() { return likes; }
     public void setLikes(int likes) { this.likes = likes; }
 
-    public int getUserId() { return userId; }
-    public void setUserId(int userId) { this.userId = userId; }
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
 }

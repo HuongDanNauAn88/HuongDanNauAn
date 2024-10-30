@@ -1,4 +1,88 @@
 {
+  "comments": {
+    "37513": {
+      "-OAKsF-EKwvCsQ3MJmnR": {
+        "commentId": "-OAKsF-EKwvCsQ3MJmnR",
+        "content": "Ngon",
+        "date": "2024-10-29",
+        "likes": 11,
+        "replies": [
+          {
+            "content": "ok",
+            "date": "2024-10-29",
+            "likes": 0,
+            "userId": 0
+          },
+          {
+            "content": "123",
+            "date": "2024-10-29",
+            "likes": 0,
+            "userId": 0
+          },
+          {
+            "content": "tra loi moi",
+            "date": "2024-10-29",
+            "likes": 0,
+            "userId": 0
+          },
+          {
+            "content": "nua ne",
+            "date": "2024-10-29",
+            "likes": 0,
+            "userId": 0
+          }
+        ],
+        "userId": 0
+      },
+      "-OALURSmKtAiu8p-zcZ-": {
+        "commentId": "-OALURSmKtAiu8p-zcZ-",
+        "content": "oh11",
+        "date": "2024-10-29",
+        "likes": 7,
+        "userId": 0
+      },
+      "-OALUfZTGJh9yG1PLG6x": {
+        "commentId": "-OALUfZTGJh9yG1PLG6x",
+        "content": "comment moi",
+        "date": "2024-10-29",
+        "likes": 0,
+        "userId": 0
+      },
+      "-OALUtfL4Wln_23Jnt0f": {
+        "commentId": "-OALUtfL4Wln_23Jnt0f",
+        "content": "cmt moi ne",
+        "date": "2024-10-29",
+        "likes": 0,
+        "userId": 0
+      }
+    },
+    "610281": {
+      "-OALWaLGUQb6T5k3r-jZ": {
+        "commentId": "-OALWaLGUQb6T5k3r-jZ",
+        "content": "Ngon lam, toi rat thich mon nay",
+        "date": "2024-10-29",
+        "likes": 0,
+        "replies": [
+          {
+            "content": "Con rat bo cho tim nua",
+            "date": "2024-10-29",
+            "likes": 0,
+            "userId": 0
+          }
+        ],
+        "userId": 0
+      }
+    },
+    "642129": {
+      "-OAHUGU6QbaOLX7Du38H": {
+        "commentId": "-OAHUGU6QbaOLX7Du38H",
+        "content": "Ngon",
+        "date": "2024-10-28",
+        "likes": 0,
+        "userId": 0
+      }
+    }
+  },
   "recipes": {
     "37513": {
       "cookingMinutes": 0,
@@ -16230,35 +16314,5 @@
       "name": "Tài",
       "tintucdaluu": ""
     }
-  ],
-  "comments": {
-    "37513": [
-      {
-        "content": "Món này rất ngon và dễ làm. Tôi đã thử và cảm thấy rất hài lòng!",
-        "date": "2024-10-17",
-        "likes": 10,
-        "replies": [
-          {
-            "content": "Đồng ý, tôi cũng thấy món này dễ làm và ngon.",
-            "date": "2024-10-18",
-            "likes": 5,
-            "userId": 2
-          },
-          {
-            "content": "Tôi thấy hơi ngọt, lần sau sẽ thử giảm đường.",
-            "date": "2024-10-18",
-            "likes": 3,
-            "userId": 3
-          }
-        ],
-        "userId": 1
-      },
-      {
-        "content": "Hương vị đậm đà nhưng tôi thích cay hơn một chút.",
-        "date": "2024-10-16",
-        "likes": 7,
-        "userId": 2
-      }
-    ]
-  }
+  ]
 }

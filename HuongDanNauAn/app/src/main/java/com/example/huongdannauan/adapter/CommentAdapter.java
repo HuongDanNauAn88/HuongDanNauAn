@@ -1,30 +1,51 @@
 package com.example.huongdannauan.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.huongdannauan.R;
+import com.example.huongdannauan.fragment.ChiTietMonAnFragment;
+import com.example.huongdannauan.fragment.DangNhapFragment;
 import com.example.huongdannauan.model.Comment;
 import com.example.huongdannauan.model.Reply;
+import com.example.huongdannauan.model.TrangThai;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentViewHolder> {
 
     private List<Comment> commentList;
     private Context context;
+    private DatabaseReference databaseReference;
+    private FragmentManager fragmentManager;
 
-    public CommentAdapter(List<Comment> commentList, Context context) {
+    public CommentAdapter(List<Comment> commentList, Context context, FragmentManager fragmentManager) {
         this.commentList = commentList;
         this.context = context;
+        this.databaseReference = FirebaseDatabase.getInstance().getReference("comments");
+        this.fragmentManager = fragmentManager;
     }
 
     @NonNull
@@ -35,14 +56,111 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
     }
 
     @Override
+    @SuppressLint({"MissingInflatedId", "LocalSuppress"})
     public void onBindViewHolder(@NonNull CommentViewHolder holder, int position) {
         Comment comment = commentList.get(position);
 
         // Gán dữ liệu bình luận
-        holder.userNameTextView.setText("User " + comment.getUserId());
+        holder.userNameTextView.setText(comment.getUserEmail());
         holder.dateTextView.setText(comment.getDate());
         holder.contentTextView.setText(comment.getContent());
         holder.likesTextView.setText(String.valueOf(comment.getLikes()));
+
+        // Xử lý sự kiện khi nhấn Like
+        holder.likeTextView.setOnClickListener(v -> {
+            if(holder.isLike){
+                int newLikes = comment.getLikes() - 1;
+                if(newLikes<0) newLikes=0;
+                comment.setLikes(newLikes);
+                databaseReference.child(ChiTietMonAnFragment.ID_MONAN).child(comment.getCommentId()).child("likes").setValue(newLikes);
+                holder.likesTextView.setText(String.valueOf(newLikes));
+                holder.isLike=false;
+                holder.likeTextView.setText("Yêu thích");
+                holder.likeTextView.setTextColor(Color.GRAY);
+            } else {
+                int newLikes = comment.getLikes() + 1;
+                comment.setLikes(newLikes);
+                databaseReference.child(ChiTietMonAnFragment.ID_MONAN).child(comment.getCommentId()).child("likes").setValue(newLikes);
+                holder.likesTextView.setText(String.valueOf(newLikes));
+                holder.isLike=true;
+                holder.likeTextView.setText("Đã thích");
+                holder.likeTextView.setTextColor(Color.RED);
+            }
+        });
+        // Xử lý sự kiện khi nhấn nút trả lời
+        holder.replyTextView.setOnClickListener(v -> {
+            if(TrangThai.userEmail.isEmpty()){
+                Toast.makeText(context, "Dang nhap de tra loi", Toast.LENGTH_SHORT).show();
+
+                Bundle args = new Bundle();
+                args.putString("return_fragment", "ChiTietMonAnFragment");
+                args.putString("idmonan", ChiTietMonAnFragment.ID_MONAN);
+                DangNhapFragment loginFragment = new DangNhapFragment();
+                loginFragment.setArguments(args);
+
+                FragmentTransaction transaction = fragmentManager.beginTransaction();
+                transaction.replace(R.id.fragment_container, loginFragment);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            } else {
+                if (holder.replyInputLayout.getVisibility() == View.GONE) {
+                    holder.replyInputLayout.setVisibility(View.VISIBLE);
+                    holder.replyTextView.setTextColor(Color.BLUE);
+                    holder.replyEditText.requestFocus();
+                    InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.showSoftInput(holder.replyEditText, InputMethodManager.SHOW_IMPLICIT);
+                } else {
+                    holder.replyInputLayout.setVisibility(View.GONE);
+                    holder.replyTextView.setTextColor(Color.GRAY);
+                    InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(holder.replyEditText.getWindowToken(), 0);
+                }
+            }
+        });
+
+        // Xử lý sự kiện khi nhấn nút Gửi
+        holder.replySendButton.setOnClickListener(v -> {
+
+            String replyContent = holder.replyEditText.getText().toString().trim();
+            if (!replyContent.isEmpty()) {
+                // Tạo một đối tượng Reply mới
+                Reply reply = new Reply();
+                reply.setUserEmail(TrangThai.userEmail);
+                reply.setContent(replyContent);
+                reply.setDate(TrangThai.getCurrentDateString());
+                reply.setLikes(0);
+
+                // Thêm reply vào danh sách replies của comment hiện tại
+                List<Reply> updatedReplies = comment.getReplies();
+                if (updatedReplies == null) {
+                    updatedReplies = new ArrayList<>();
+                }
+                updatedReplies.add(reply);
+
+                // Cập nhật lại danh sách replies trên Firebase
+                databaseReference.child(ChiTietMonAnFragment.ID_MONAN).child(comment.getCommentId()).child("replies").setValue(updatedReplies);
+
+                // Xóa nội dung EditText sau khi gửi
+                holder.replyEditText.setText("");
+                holder.replyInputLayout.setVisibility(View.GONE);
+                holder.replyTextView.setTextColor(Color.GRAY);
+                InputMethodManager imm = (InputMethodManager) context.getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(holder.replyEditText.getWindowToken(), 0);
+
+                // Load lai comment
+                View replyView = LayoutInflater.from(context).inflate(R.layout.reply_item, holder.repliesLayout, false);
+                TextView replyContentTV = replyView.findViewById(R.id.replyContentTextView);
+                TextView replyDateTV = replyView.findViewById(R.id.replyDateTextView);
+                TextView replyLikesTV = replyView.findViewById(R.id.replyLikesTextView);
+                TextView replyNameTV = replyView.findViewById(R.id.replyNameTextView);
+                replyNameTV.setText(reply.getUserEmail());
+                replyContentTV.setText(reply.getContent());
+                replyDateTV.setText(reply.getDate());
+                replyLikesTV.setText(String.valueOf(reply.getLikes()));
+
+                holder.repliesLayout.addView(replyView);
+            }
+        });
 
         // Gán các bình luận trả lời
         holder.repliesLayout.removeAllViews(); // Xóa các bình luận cũ nếu có
@@ -54,7 +172,9 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
                 TextView replyContent = replyView.findViewById(R.id.replyContentTextView);
                 TextView replyDate = replyView.findViewById(R.id.replyDateTextView);
                 TextView replyLikes = replyView.findViewById(R.id.replyLikesTextView);
+                TextView replyName = replyView.findViewById(R.id.replyNameTextView);
 
+                replyName.setText(reply.getUserEmail());
                 replyContent.setText(reply.getContent());
                 replyDate.setText(reply.getDate());
                 replyLikes.setText(String.valueOf(reply.getLikes()));
@@ -72,8 +192,12 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
 
     public static class CommentViewHolder extends RecyclerView.ViewHolder {
         ImageView avatarImageView;
-        TextView userNameTextView, dateTextView, contentTextView, likesTextView;
-        LinearLayout repliesLayout;
+        TextView userNameTextView, dateTextView, contentTextView, likesTextView, likeTextView, replyTextView;
+        LinearLayout repliesLayout, replyInputLayout;
+        EditText replyEditText;
+        Button replySendButton;
+        boolean isLike = false;
+
 
         public CommentViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -82,7 +206,13 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
             dateTextView = itemView.findViewById(R.id.dateTextView);
             contentTextView = itemView.findViewById(R.id.contentTextView);
             likesTextView = itemView.findViewById(R.id.likesTextView);
+            likeTextView = itemView.findViewById(R.id.likeTextView);
             repliesLayout = itemView.findViewById(R.id.repliesLayout);
+            replyEditText = itemView.findViewById(R.id.replyEditText);
+            replySendButton = itemView.findViewById(R.id.replySendButton);
+            replyTextView = itemView.findViewById(R.id.replyTextView);
+            replyInputLayout = itemView.findViewById(R.id.replyInputLayout);
         }
     }
+
 }

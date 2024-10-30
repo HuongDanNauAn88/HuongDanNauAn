@@ -24,6 +24,12 @@
                 android:layout_height="200dp"
                 android:scaleType="centerCrop"
                 android:contentDescription="Hinh anh" />
+            <ProgressBar
+                android:id="@+id/progressBar1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:layout_gravity="center" />
 
             <!-- Tiêu đề món ăn -->
             <TextView
@@ -207,28 +213,51 @@
                     android:textSize="24sp"
                     android:paddingTop="8dp" />
 
+                <!-- Khu vực nhập bình luận -->
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    android:orientation="horizontal"
+                    android:padding="8dp"
+                    android:background="#FFFFFF"
+                    android:elevation="4dp"
+                    android:fitsSystemWindows="true">
 
+                    <!-- EditText nhập bình luận -->
                     <EditText
-                        android:id="@+id/txtComment"
-                        android:layout_width="wrap_content"
+                        android:id="@+id/editTextComment"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:ems="10"
-                        android:gravity="start|top"
-                        android:background="#fff"
-                        android:inputType="textMultiLine" />
+                        android:hint="Viết bình luận..."
+                        android:backgroundTint="#DDDDDD"
+                        android:inputType="textMultiLine"
+                        android:padding="12dp"
+                        android:textSize="20sp"
+                        android:background="@drawable/edit_text_background"
+                        android:gravity="top|start"
+                        android:fitsSystemWindows="true"/>
 
+                    <!-- Button gửi bình luận -->
                     <Button
-                        android:id="@+id/btnComment"
+                        android:id="@+id/buttonSend"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="#090"
-                        android:text="Send"/>
+                        android:text="Gửi"
+                        android:layout_gravity="center_vertical"
+                        android:padding="12dp"
+                        android:backgroundTint="#4CAF50"
+                        android:textColor="#FFFFFF"
+                        android:elevation="4dp"
+                        android:layout_marginLeft="8dp"/>
                 </LinearLayout>
+
+                <ProgressBar
+                    android:id="@+id/progressBar2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_gravity="center" />
 
                 <!-- RecyclerView hiển thị danh sách bình luận -->
                 <androidx.recyclerview.widget.RecyclerView

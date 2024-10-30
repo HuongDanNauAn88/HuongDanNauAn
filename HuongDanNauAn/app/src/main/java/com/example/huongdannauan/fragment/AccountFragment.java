@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.example.huongdannauan.R;
+import com.example.huongdannauan.model.TrangThai;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -72,15 +73,16 @@ public class AccountFragment extends Fragment {
         cnChinhSuaThongTin = view.findViewById(R.id.CNChinhSuaThongTin);
         cnDangXuat = view.findViewById(R.id.CNDangXuat);
 
-        openFragmentOfUser(cnMonAnYeuThich, new MonAnYeuThichFragment());
-        openFragmentOfUser(cnTinTucDaLuu, new TinTucDaLuuFragment());
-        openFragmentOfUser(cnBinhLuanCuaToi, new BinhLuanCuaToiFragment());
-        openFragmentOfUser(cnChinhSuaThongTin, new ChinhSuaThongTinFragment());
-        openFragmentOfUser(cnDangXuat, new DangNhapFragment());
+        openFragmentOfUser(cnMonAnYeuThich, new MonAnYeuThichFragment(), false);
+        openFragmentOfUser(cnTinTucDaLuu, new TinTucDaLuuFragment(), false);
+        openFragmentOfUser(cnBinhLuanCuaToi, new BinhLuanCuaToiFragment(), false);
+        openFragmentOfUser(cnChinhSuaThongTin, new ChinhSuaThongTinFragment(), false);
+        openFragmentOfUser(cnDangXuat, new DangNhapFragment(), true);
 
         return view;
     }
-    void openFragmentOfUser(LinearLayout linearLayout, Fragment fragment){
+    void openFragmentOfUser(LinearLayout linearLayout, Fragment fragment, boolean isDangXuat){
+        if(isDangXuat) TrangThai.userEmail="";
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
