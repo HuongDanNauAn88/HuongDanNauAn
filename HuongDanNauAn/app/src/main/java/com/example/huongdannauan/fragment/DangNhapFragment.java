@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.example.huongdannauan.R;
 import com.example.huongdannauan.model.TrangThai;
+import com.example.huongdannauan.model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -113,36 +114,36 @@ public class DangNhapFragment extends Fragment {
         });
     }
 
-    void  SignIn()
-    {
+    void SignIn() {
         String email = edEmail.getText().toString().trim();
         String password = edPass.getText().toString().trim();
 
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
-//        progressDialog.show();
+
         if (email.isEmpty() || password.isEmpty()) {
-            Toast.makeText(requireContext(), "Email and password cannot be empty.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(requireContext(), "Email và mật khẩu không thể để trống.", Toast.LENGTH_SHORT).show();
             return; // Ngừng thực hiện nếu có trường rỗng
         }
 
         mAuth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(requireActivity(), new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            TrangThai.userEmail = email;
-                            Bundle args = getArguments();
-                            if (args != null && "ChiTietMonAnFragment".equals(args.getString("return_fragment"))) {
-                                // Quay lại Fragment Món ăn
-                                openAccountFragment(ChiTietMonAnFragment.newInstance(args.getString(("idmonan")), ""));
-                            } else {
-                                // Nếu không, mở Fragment tài khoản như mặc định
-                                openAccountFragment(new AccountFragment());
-                            }
+                .addOnCompleteListener(requireActivity(), task -> {
+                    if (task.isSuccessful()) {
+                        // Create a User object and save email
+                        User currentUser = new User(); // Initialize with empty values
+                        currentUser.setEmail(email);
+                        // Optionally set other fields as needed
+                        TrangThai.currentUser = currentUser; // Save the User object
+
+                        // Proceed to the next fragment
+                        Bundle args = getArguments();
+                        if (args != null && "ChiTietMonAnFragment".equals(args.getString("return_fragment"))) {
+                            openAccountFragment(ChiTietMonAnFragment.newInstance(args.getString("idmonan"), ""));
                         } else {
-                            String errorMessage = task.getException() != null ? task.getException().getMessage() : "Đăng nhập thất bại.";
-                            Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show();
+                            openAccountFragment(new AccountFragment());
                         }
+                    } else {
+                        String errorMessage = task.getException() != null ? task.getException().getMessage() : "Đăng nhập thất bại.";
+                        Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show();
                     }
                 });
     }

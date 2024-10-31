@@ -5,6 +5,7 @@ import java.util.Date;
 
 public class TrangThai {
     public static String userEmail = "";
+    public static User currentUser;
     public static String getCurrentDateString() {
         // Định dạng ngày theo yêu cầu
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");

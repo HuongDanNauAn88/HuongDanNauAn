@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.huongdannauan.R;
 import com.example.huongdannauan.model.TrangThai;
@@ -20,7 +21,7 @@ import com.example.huongdannauan.model.TrangThai;
  */
 public class AccountFragment extends Fragment {
     LinearLayout cnMonAnYeuThich, cnTinTucDaLuu, cnBinhLuanCuaToi, cnChinhSuaThongTin, cnDangXuat;
-
+    TextView userEmailTextView;
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -67,6 +68,8 @@ public class AccountFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_account, container, false);
 
+        userEmailTextView = view.findViewById(R.id.user_email);
+        userEmailTextView.setText(TrangThai.currentUser.getEmail());
         cnMonAnYeuThich = view.findViewById(R.id.CNMonAnYeuThich);
         cnTinTucDaLuu = view.findViewById(R.id.CNTinTucDaLuu);
         cnBinhLuanCuaToi = view.findViewById(R.id.CNBinhLuanCuaToi);
