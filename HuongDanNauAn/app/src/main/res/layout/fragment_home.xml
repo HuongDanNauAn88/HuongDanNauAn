@@ -64,16 +64,34 @@
                 android:background="@drawable/rounded_background2"
                 android:orientation="vertical">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:paddingHorizontal="8dp"
-                    android:paddingVertical="8dp"
-                    android:text="Món ăn nổi bật"
-                    android:textColor="#333"
-                    android:textSize="26sp"
-                    android:textStyle="bold" />
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginBottom="8dp"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="8dp"
+                        android:text="Món ăn nổi bật"
+                        android:textColor="#333"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/txtXemAll"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="8dp"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="8dp"
+                        android:text="Xem tất cả"
+                        android:textColor="#0040FF"
+                        android:textSize="20sp"
+                        android:gravity="center"
+                        android:textStyle="italic" />
+                </LinearLayout>
                 <ProgressBar
                     android:id="@+id/progressBar1"
                     android:layout_width="wrap_content"
@@ -99,16 +117,33 @@
                 android:background="@drawable/rounded_background2"
                 android:orientation="vertical">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="8dp"
-                    android:paddingHorizontal="8dp"
-                    android:paddingVertical="8dp"
-                    android:text="Món ăn Việt Nam"
-                    android:textColor="#333"
-                    android:textSize="26sp"
-                    android:textStyle="bold"  />
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginBottom="8dp"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="8dp"
+                        android:text="Món ăn Việt Nam"
+                        android:textColor="#333"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="8dp"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="8dp"
+                        android:text="Xem tất cả"
+                        android:textColor="#0040FF"
+                        android:textSize="20sp"
+                        android:gravity="center"
+                        android:textStyle="italic" />
+                </LinearLayout>
                 <ProgressBar
                     android:id="@+id/progressBar2"
                     android:layout_width="wrap_content"

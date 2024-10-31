@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.huongdannauan.R;
@@ -46,7 +47,8 @@ public class HomeFragment extends Fragment {
     RecyclerView recyclerView2;
     private RecipeAdapter recipeAdapter2;
     private List<Recipe> recipeList2;
-    private DatabaseReference databaseReference2;
+    TextView txtXemAll;
+    ProgressBar progressBar1, progressBar2;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -95,16 +97,19 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        ProgressBar progressBar1 = view.findViewById(R.id.progressBar1);
-        progressBar1.setVisibility(View.VISIBLE);
-        ProgressBar progressBar2 = view.findViewById(R.id.progressBar2);
-        progressBar2.setVisibility(View.VISIBLE);
-
-        // Gắn ID
+        // Add controls
+        progressBar1 = view.findViewById(R.id.progressBar1);
+        progressBar2 = view.findViewById(R.id.progressBar2);
         recyclerView1 = view.findViewById(R.id.recyclerViewHome1);
         recyclerView2 = view.findViewById(R.id.recyclerViewHome2);
+        txtXemAll = view.findViewById(R.id.txtXemAll);
 
-        // Cài đặt RecyclerView 1 - Món ăn Nổi bật
+        eventXemAll();
+
+        progressBar1.setVisibility(View.VISIBLE);
+        progressBar2.setVisibility(View.VISIBLE);
+
+        // Cài đặt RecyclerView  - Món ăn Nổi bật,..
         recyclerView1.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         recyclerView2.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false));
         recipeList1 = new ArrayList<>();
@@ -118,9 +123,24 @@ public class HomeFragment extends Fragment {
         recyclerView1.setAdapter(recipeAdapter1);
         recyclerView2.setAdapter(recipeAdapter2);
 
-        databaseReference1 = FirebaseDatabase.getInstance().getReference("recipes");
+        loadFirebase();
 
-        // Lấy dữ liệu cho RecyclerView
+
+        return view;
+    }
+
+    // Phương thức mở RecipeDetailFragment và truyền recipeId
+    private void openRecipeDetailFragment(int recipeId) {
+        ChiTietMonAnFragment chiTietMonAnFragment = ChiTietMonAnFragment.newInstance(String.valueOf(recipeId), "");
+        getParentFragmentManager().beginTransaction()
+                .replace(R.id.fragment_container, chiTietMonAnFragment)
+                .addToBackStack(null)
+                .commit();
+    }
+
+    void loadFirebase(){
+        // Đổ dữ liệu từ Firebase
+        databaseReference1 = FirebaseDatabase.getInstance().getReference("recipes");
         databaseReference1.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -138,17 +158,14 @@ public class HomeFragment extends Fragment {
                         if (recipeList1.size()==10 && recipeList2.size()==10) {
                             break;
                         }
-
                         progressBar1.setVisibility(View.GONE);
                         progressBar2.setVisibility(View.GONE);
-
                     } catch (DatabaseException e) {
                         Log.e("FirebaseError", "Error deserializing data", e);
                         progressBar1.setVisibility(View.GONE);
                         progressBar2.setVisibility(View.GONE);
                     }
                 }
-
                 // Cập nhật Adapter
                 recipeAdapter1.notifyDataSetChanged();
                 recipeAdapter2.notifyDataSetChanged();
@@ -159,17 +176,19 @@ public class HomeFragment extends Fragment {
                 Toast.makeText(getContext(), "Failed to load data", Toast.LENGTH_SHORT).show();
             }
         });
-
-        return view;
     }
 
-    // Phương thức mở RecipeDetailFragment và truyền recipeId
-    private void openRecipeDetailFragment(int recipeId) {
-        ChiTietMonAnFragment chiTietMonAnFragment = ChiTietMonAnFragment.newInstance(String.valueOf(recipeId), "");
-        getParentFragmentManager().beginTransaction()
-                .replace(R.id.fragment_container, chiTietMonAnFragment)
-                .addToBackStack(null)
-                .commit();
+    void eventXemAll(){
+        txtXemAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AllRecipeFragment allRecipeFragment = new AllRecipeFragment();
+                getParentFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, allRecipeFragment)
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
     }
 
 }

@@ -1,85 +1,87 @@
 {
   "comments": {
     "37513": {
-      "-OAKsF-EKwvCsQ3MJmnR": {
-        "commentId": "-OAKsF-EKwvCsQ3MJmnR",
-        "content": "Ngon",
+      "-OANycWIXORHoE4-DnCZ": {
+        "commentId": "-OANycWIXORHoE4-DnCZ",
+        "content": "ngon",
         "date": "2024-10-29",
-        "likes": 11,
+        "likes": 3,
+        "userEmail": "buiquocbao.it@gmail.com"
+      },
+      "-OANyeRRGDwuG-tZW4a8": {
+        "commentId": "-OANyeRRGDwuG-tZW4a8",
+        "content": "ngon lam",
+        "date": "2024-10-29",
+        "likes": 1,
+        "userEmail": "buiquocbao.it@gmail.com"
+      }
+    },
+    "610281": {
+      "-OANyuRDx9jt7xXNeI5A": {
+        "commentId": "-OANyuRDx9jt7xXNeI5A",
+        "content": "toi da thu nhung no rat ngot, can bo it duong lai neu ban khong an ngot",
+        "date": "2024-10-29",
+        "likes": 1,
         "replies": [
+          {
+            "content": "Dung vay, toi cung nghi vay",
+            "date": "2024-10-29",
+            "likes": 0,
+            "userEmail": "buiquocbao.it@gmail.com"
+          }
+        ],
+        "userEmail": "buiquocbao.it@gmail.com"
+      }
+    },
+    "642129": {
+      "-OAO4TBHxXk9KR6iQ3iM": {
+        "commentId": "-OAO4TBHxXk9KR6iQ3iM",
+        "content": "ngon",
+        "date": "2024-10-29",
+        "likes": 1,
+        "replies": [
+          {
+            "content": "ngon",
+            "date": "2024-10-29",
+            "likes": 0,
+            "userEmail": "buiquocbao.it@gmail.com"
+          },
           {
             "content": "ok",
             "date": "2024-10-29",
             "likes": 0,
-            "userId": 0
-          },
-          {
-            "content": "123",
-            "date": "2024-10-29",
-            "likes": 0,
-            "userId": 0
-          },
-          {
-            "content": "tra loi moi",
-            "date": "2024-10-29",
-            "likes": 0,
-            "userId": 0
-          },
-          {
-            "content": "nua ne",
-            "date": "2024-10-29",
-            "likes": 0,
-            "userId": 0
+            "userEmail": "buiquocbao.it@gmail.com"
           }
         ],
-        "userId": 0
+        "userEmail": "buiquocbao.it@gmail.com"
       },
-      "-OALURSmKtAiu8p-zcZ-": {
-        "commentId": "-OALURSmKtAiu8p-zcZ-",
-        "content": "oh11",
+      "-OAO5XBAzipBj8L4lVXW": {
+        "commentId": "-OAO5XBAzipBj8L4lVXW",
+        "content": "rat ngon",
         "date": "2024-10-29",
-        "likes": 7,
-        "userId": 0
+        "likes": 0,
+        "userEmail": "buiquocbao.it@gmail.com"
       },
-      "-OALUfZTGJh9yG1PLG6x": {
-        "commentId": "-OALUfZTGJh9yG1PLG6x",
-        "content": "comment moi",
+      "-OAO5X_gsHBQpqDs7dUg": {
+        "commentId": "-OAO5X_gsHBQpqDs7dUg",
+        "content": "rat ngon",
         "date": "2024-10-29",
         "likes": 0,
-        "userId": 0
+        "userEmail": "buiquocbao.it@gmail.com"
       },
-      "-OALUtfL4Wln_23Jnt0f": {
-        "commentId": "-OALUtfL4Wln_23Jnt0f",
-        "content": "cmt moi ne",
+      "-OAO5fDSaCLXoFHXTrA9": {
+        "commentId": "-OAO5fDSaCLXoFHXTrA9",
+        "content": "ngon",
         "date": "2024-10-29",
         "likes": 0,
-        "userId": 0
-      }
-    },
-    "610281": {
-      "-OALWaLGUQb6T5k3r-jZ": {
-        "commentId": "-OALWaLGUQb6T5k3r-jZ",
-        "content": "Ngon lam, toi rat thich mon nay",
+        "userEmail": "buiquocbao.it@gmail.com"
+      },
+      "-OAO62-b1Fc8ryiudtdf": {
+        "commentId": "-OAO62-b1Fc8ryiudtdf",
+        "content": "perfect",
         "date": "2024-10-29",
         "likes": 0,
-        "replies": [
-          {
-            "content": "Con rat bo cho tim nua",
-            "date": "2024-10-29",
-            "likes": 0,
-            "userId": 0
-          }
-        ],
-        "userId": 0
-      }
-    },
-    "642129": {
-      "-OAHUGU6QbaOLX7Du38H": {
-        "commentId": "-OAHUGU6QbaOLX7Du38H",
-        "content": "Ngon",
-        "date": "2024-10-28",
-        "likes": 0,
-        "userId": 0
+        "userEmail": "buiquocbao.it@gmail.com"
       }
     }
   },
@@ -647,12 +649,8 @@
       ],
       "dishTypes": [
         "Món ăn phụ",
-        "Antipasti",
-        "Khai vị",
-        "đồ ăn vặt",
-        "món khai vị",
-        "Antipasto",
-        "không làm việc"
+        "Đồ ăn vặt",
+        "Món khai vị"
       ],
       "extendedIngredients": [
         {
@@ -1160,13 +1158,9 @@
         "Người Mỹ"
       ],
       "dishTypes": [
-        "Antipasti",
         "Canh",
-        "Khai vị",
-        "đồ ăn vặt",
-        "món khai vị",
-        "Antipasto",
-        "không làm việc"
+        "Đồ ăn vặt",
+        "Món khai vị"
       ],
       "extendedIngredients": [
         {
@@ -1335,13 +1329,9 @@
         "Người Mỹ"
       ],
       "dishTypes": [
-        "Antipasti",
         "Canh",
-        "Khai vị",
-        "đồ ăn vặt",
-        "món khai vị",
-        "Antipasto",
-        "không làm việc"
+        "Đồ ăn vặt",
+        "Món khai vị"
       ],
       "extendedIngredients": [
         {
@@ -2473,15 +2463,10 @@
       ],
       "dishTypes": [
         "Bữa trưa",
-        "Antipasti",
         "Món ăn chính",
-        "Khai vị",
-        "đồ ăn vặt",
-        "món khai vị",
-        "Món ăn chính",
-        "Antipasto",
-        "Bữa tối",
-        "không làm việc"
+        "Đồ ăn vặt",
+        "Món khai vị",
+        "Bữa tối"
       ],
       "extendedIngredients": [
         {
@@ -2893,12 +2878,8 @@
       ],
       "dishTypes": [
         "Món ăn phụ",
-        "Antipasti",
-        "Khai vị",
-        "đồ ăn vặt",
-        "món khai vị",
-        "Antipasto",
-        "không làm việc"
+        "Đồ ăn vặt",
+        "Món khai vị"
       ],
       "extendedIngredients": [
         {
@@ -3497,12 +3478,9 @@
         "Châu Á"
       ],
       "dishTypes": [
-        "thức ăn ngón tay",
-        "Antipasti",
-        "Khai vị",
-        "đồ ăn vặt",
-        "món khai vị",
-        "Antipasto"
+        "Thức ăn nhỏ",
+        "Đồ ăn vặt",
+        "Món khai vị"
       ],
       "extendedIngredients": [
         {
@@ -4035,13 +4013,9 @@
         "Châu Á"
       ],
       "dishTypes": [
-        "thức ăn ngón tay",
-        "Antipasti",
-        "Khai vị",
-        "đồ ăn vặt",
-        "món khai vị",
-        "Antipasto",
-        "không làm việc"
+        "Thức ăn nhỏ",
+        "Đồ ăn vặt",
+        "Món khai vị"
       ],
       "extendedIngredients": [
         {
@@ -4217,13 +4191,9 @@
       ],
       "dishTypes": [
         "Món ăn phụ",
-        "Antipasti",
         "Xa lát",
-        "Khai vị",
-        "đồ ăn vặt",
-        "món khai vị",
-        "Antipasto",
-        "không làm việc"
+        "Đồ ăn vặt",
+        "Món khai vị"
       ],
       "extendedIngredients": [
         {
@@ -4896,13 +4866,9 @@
         "Châu Á"
       ],
       "dishTypes": [
-        "Antipasti",
         "Canh",
-        "Khai vị",
-        "đồ ăn vặt",
-        "món khai vị",
-        "Antipasto",
-        "không làm việc"
+        "Đồ ăn vặt",
+        "Món khai vị"
       ],
       "extendedIngredients": [
         {
@@ -5729,7 +5695,7 @@
         "Châu Á"
       ],
       "dishTypes": [
-        "món tráng miệng"
+        "Món tráng miệng"
       ],
       "extendedIngredients": [
         {
@@ -5927,12 +5893,8 @@
         "Châu Á"
       ],
       "dishTypes": [
-        "Antipasti",
-        "Khai vị",
-        "đồ ăn vặt",
-        "món khai vị",
-        "Antipasto",
-        "không làm việc"
+        "Đồ ăn vặt",
+        "Món khai vị"
       ],
       "extendedIngredients": [
         {
@@ -6335,15 +6297,10 @@
         "Châu Á"
       ],
       "dishTypes": [
-        "Antipasti",
         "Bữa trưa",
         "Món ăn chính",
-        "Khai vị",
-        "đồ ăn vặt",
-        "món khai vị",
-        "Món ăn chính",
-        "Antipasto",
-        "không làm việc",
+        "Đồ ăn vặt",
+        "Món khai vị",
         "Bữa tối"
       ],
       "extendedIngredients": [
@@ -7309,7 +7266,7 @@
         "Châu Á"
       ],
       "dishTypes": [
-        "món tráng miệng"
+        "Món tráng miệng"
       ],
       "extendedIngredients": [
         {
@@ -7376,9 +7333,9 @@
       ],
       "dishTypes": [
         "Gia vị",
-        "nhúng",
-        "nước xốt",
-        "lây lan"
+        "Chấm",
+        "Nước Xốt",
+        "Nước sốt phết"
       ],
       "extendedIngredients": [
         {
@@ -7540,7 +7497,7 @@
         "Châu Á"
       ],
       "dishTypes": [
-        "nước xốt"
+        "Nước Xốt"
       ],
       "extendedIngredients": [
         {
@@ -8202,13 +8159,10 @@
         "Châu Á"
       ],
       "dishTypes": [
-        "Antipasti",
         "Canh",
         "Khai vị",
-        "đồ ăn vặt",
-        "món khai vị",
-        "Antipasto",
-        "không làm việc"
+        "Đồ ăn vặt",
+        "Món khai vị"
       ],
       "extendedIngredients": [
         {
@@ -8685,13 +8639,10 @@
       ],
       "dishTypes": [
         "Món ăn phụ",
-        "Antipasti",
         "Xa lát",
         "Khai vị",
-        "đồ ăn vặt",
-        "món khai vị",
-        "Antipasto",
-        "không làm việc"
+        "Đồ ăn vặt",
+        "Món khai vị"
       ],
       "extendedIngredients": [
         {
@@ -8770,13 +8721,9 @@
         "Châu Á"
       ],
       "dishTypes": [
-        "thức ăn ngón tay",
-        "Antipasti",
-        "Khai vị",
-        "đồ ăn vặt",
-        "món khai vị",
-        "Antipasto",
-        "không làm việc"
+        "Thức ăn nhỏ",
+        "Đồ ăn vặt",
+        "Món khai vị"
       ],
       "extendedIngredients": [
         {
@@ -9444,7 +9391,7 @@
         "Châu Á"
       ],
       "dishTypes": [
-        "món tráng miệng"
+        "Món tráng miệng"
       ],
       "extendedIngredients": [
         {
@@ -9516,13 +9463,9 @@
         "Châu Âu"
       ],
       "dishTypes": [
-        "thức ăn ngón tay",
-        "Antipasti",
-        "Khai vị",
-        "đồ ăn vặt",
-        "món khai vị",
-        "Antipasto",
-        "không làm việc"
+        "Thức ăn nhỏ",
+        "Đồ ăn vặt",
+        "Món khai vị"
       ],
       "extendedIngredients": [
         {
@@ -9948,13 +9891,9 @@
         "Châu Âu"
       ],
       "dishTypes": [
-        "Antipasti",
         "Canh",
-        "Khai vị",
-        "đồ ăn vặt",
-        "món khai vị",
-        "Antipasto",
-        "không làm việc"
+        "Đồ ăn vặt",
+        "Món khai vị"
       ],
       "extendedIngredients": [
         {
@@ -10046,13 +9985,9 @@
         "Người Mỹ"
       ],
       "dishTypes": [
-        "Antipasti",
         "Canh",
-        "Khai vị",
-        "đồ ăn vặt",
-        "món khai vị",
-        "Antipasto",
-        "không làm việc"
+        "Đồ ăn vặt",
+        "Món khai vị"
       ],
       "extendedIngredients": [
         {
@@ -10273,13 +10208,9 @@
         "Người Mỹ"
       ],
       "dishTypes": [
-        "Antipasti",
         "Canh",
-        "Khai vị",
-        "đồ ăn vặt",
-        "món khai vị",
-        "Antipasto",
-        "không làm việc"
+        "Đồ ăn vặt",
+        "Món khai vị"
       ],
       "extendedIngredients": [
         {
@@ -10515,11 +10446,11 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Tiếng Tây Ban Nha",
+        "Tây Ban Nha",
         "Châu Âu"
       ],
       "dishTypes": [
-        "nước xốt"
+        "Nước Xốt"
       ],
       "extendedIngredients": [
         {
@@ -10896,12 +10827,8 @@
         "Châu Á"
       ],
       "dishTypes": [
-        "Antipasti",
-        "Khai vị",
-        "đồ ăn vặt",
-        "món khai vị",
-        "Antipasto",
-        "không làm việc"
+        "Đồ ăn vặt",
+        "Món khai vị"
       ],
       "extendedIngredients": [
         {
@@ -11271,13 +11198,9 @@
       ],
       "dishTypes": [
         "Món ăn phụ",
-        "Antipasti",
         "Xa lát",
-        "Khai vị",
-        "đồ ăn vặt",
-        "món khai vị",
-        "Antipasto",
-        "không làm việc"
+        "Đồ ăn vặt",
+        "Món khai vị"
       ],
       "extendedIngredients": [
         {
@@ -11720,15 +11643,10 @@
       ],
       "dishTypes": [
         "Bữa trưa",
-        "Antipasti",
         "Món ăn chính",
-        "Khai vị",
-        "đồ ăn vặt",
-        "món khai vị",
-        "Món ăn chính",
-        "Antipasto",
-        "Bữa tối",
-        "không làm việc"
+        "Đồ ăn vặt",
+        "Món khai vị",
+        "Bữa tối"
       ],
       "extendedIngredients": [
         {
@@ -11932,13 +11850,9 @@
         "Ailen"
       ],
       "dishTypes": [
-        "Antipasti",
         "Canh",
-        "Khai vị",
-        "đồ ăn vặt",
-        "món khai vị",
-        "Antipasto",
-        "không làm việc"
+        "Đồ ăn vặt",
+        "Món khai vị"
       ],
       "extendedIngredients": [
         {
@@ -12225,12 +12139,8 @@
         "Châu Âu"
       ],
       "dishTypes": [
-        "Antipasti",
-        "Khai vị",
-        "đồ ăn vặt",
-        "món khai vị",
-        "Antipasto",
-        "không làm việc"
+        "Đồ ăn vặt",
+        "Món khai vị"
       ],
       "extendedIngredients": [
         {
@@ -12325,13 +12235,9 @@
         "Châu Á"
       ],
       "dishTypes": [
-        "thức ăn ngón tay",
-        "Antipasti",
-        "Khai vị",
-        "đồ ăn vặt",
-        "món khai vị",
-        "Antipasto",
-        "không làm việc"
+        "Thức ăn nhỏ",
+        "Đồ ăn vặt",
+        "Món khai vị"
       ],
       "extendedIngredients": [
         {
@@ -12626,7 +12532,6 @@
         "Bữa trưa",
         "Canh",
         "Món ăn chính",
-        "main dish",
         "Bữa tối"
       ],
       "extendedIngredients": [
@@ -12830,13 +12735,9 @@
         "Châu Á"
       ],
       "dishTypes": [
-        "thức ăn ngón tay",
-        "Antipasti",
-        "Khai vị",
-        "đồ ăn vặt",
-        "món khai vị",
-        "Antipasto",
-        "không làm việc"
+        "Thức ăn nhỏ",
+        "Đồ ăn vặt",
+        "Món khai vị"
       ],
       "extendedIngredients": [
         {
@@ -12943,7 +12844,6 @@
         "Bữa trưa",
         "Canh",
         "Món ăn chính",
-        "main dish",
         "Bữa tối"
       ],
       "extendedIngredients": [
@@ -13099,12 +12999,8 @@
         "Châu Á"
       ],
       "dishTypes": [
-        "Antipasti",
-        "Khai vị",
-        "đồ ăn vặt",
-        "món khai vị",
-        "Antipasto",
-        "không làm việc"
+        "Đồ ăn vặt",
+        "Món khai vị"
       ],
       "extendedIngredients": [
         {
@@ -13388,7 +13284,6 @@
       "dishTypes": [
         "Món ăn phụ",
         "Bữa trưa",
-        "main course",
         "Món ăn chính",
         "Bữa tối"
       ],
@@ -13605,7 +13500,6 @@
       ],
       "dishTypes": [
         "Bữa trưa",
-        "main course",
         "Món ăn chính",
         "Bữa tối"
       ],
@@ -13907,12 +13801,9 @@
         "Châu Á"
       ],
       "dishTypes": [
-        "thức ăn ngón tay",
-        "antipasti",
-        "Khai vị",
-        "đồ ăn vặt",
-        "món khai vị",
-        "Antipasto"
+        "Thức ăn nhỏ",
+        "Đồ ăn vặt",
+        "Món khai vị"
       ],
       "extendedIngredients": [
         {
@@ -14506,13 +14397,9 @@
         "Châu Âu"
       ],
       "dishTypes": [
-        "thức ăn ngón tay",
-        "Antipasti",
-        "Khai vị",
-        "đồ ăn vặt",
-        "món khai vị",
-        "Antipasto",
-        "không làm việc"
+        "Thức ăn nhỏ",
+        "Đồ ăn vặt",
+        "Món khai vị"
       ],
       "extendedIngredients": [
         {
@@ -14592,12 +14479,8 @@
       ],
       "dishTypes": [
         "Món ăn phụ",
-        "Antipasti",
-        "Khai vị",
-        "đồ ăn vặt",
-        "món khai vị",
-        "Antipasto",
-        "không làm việc"
+        "Đồ ăn vặt",
+        "Món khai vị"
       ],
       "extendedIngredients": [
         {
@@ -14666,15 +14549,10 @@
       ],
       "dishTypes": [
         "Bữa trưa",
-        "Antipasti",
         "Món ăn chính",
-        "Khai vị",
-        "đồ ăn vặt",
-        "món khai vị",
-        "Món ăn chính",
-        "Antipasto",
-        "Bữa tối",
-        "không làm việc"
+        "Đồ ăn vặt",
+        "Món khai vị",
+        "Bữa tối"
       ],
       "extendedIngredients": [
         {
@@ -14754,7 +14632,6 @@
       "dishTypes": [
         "Bữa trưa",
         "Món ăn chính",
-        "main dish",
         "Bữa tối"
       ],
       "extendedIngredients": [
@@ -14903,7 +14780,6 @@
       "dishTypes": [
         "Món ăn phụ",
         "Bữa trưa",
-        "main course",
         "Món ăn chính",
         "Bữa tối"
       ],
@@ -15105,7 +14981,7 @@
         "Asian"
       ],
       "dishTypes": [
-        "lunch",
+        "Bữa trưa",
         "Canh",
         "Món ăn chính",
         "Món ăn chính",
@@ -15296,11 +15172,10 @@
         "Châu Á"
       ],
       "dishTypes": [
-        "lunch",
+        "Bữa trưa",
         "Canh",
         "Món ăn chính",
-        "Món ăn chính",
-        "dinner"
+        "Bữa tối"
       ],
       "extendedIngredients": [
         {
@@ -15816,13 +15691,9 @@
         "Người Mỹ"
       ],
       "dishTypes": [
-        "Antipasti",
         "Canh",
-        "Khai vị",
-        "đồ ăn vặt",
-        "món khai vị",
-        "Antipasto",
-        "không làm việc"
+        "Đồ ăn vặt",
+        "Món khai vị"
       ],
       "extendedIngredients": [
         {
@@ -16152,7 +16023,7 @@
         "Canh",
         "Món ăn chính",
         "Món ăn chính",
-        "dinner"
+        "Bữa tối"
       ],
       "extendedIngredients": [
         {
