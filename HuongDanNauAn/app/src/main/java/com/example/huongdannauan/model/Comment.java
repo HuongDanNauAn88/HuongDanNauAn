@@ -1,7 +1,6 @@
 package com.example.huongdannauan.model;
 
 import java.util.List;
-import java.util.Map;
 
 public class Comment {
     private String commentId;
