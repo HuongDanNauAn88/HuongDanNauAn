@@ -130,9 +130,9 @@ public class DangKyFragment extends Fragment {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            addUser(TenDN,email);
-                            // Đăng ký thành công, chuyển hướng đến AccountFragment
-                            openAccountFragment(new AccountFragment());
+                            addUser(TenDN, email);
+                            // Đăng ký thành công, quay về trang đăng nhập
+                            openFragmentOfUser(new DangNhapFragment());
                         } else {
                             // Nếu đăng ký thất bại, hiển thị thông báo cho người dùng
                             String errorMessage = task.getException() != null ? task.getException().getMessage() : "Đăng ký thất bại.";
@@ -141,6 +141,14 @@ public class DangKyFragment extends Fragment {
                     }
                 });
     }
+
+    void openFragmentOfUser(Fragment fragment) {
+        FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragment_container, fragment); // fragment_container là id của container chứa fragment
+        transaction.addToBackStack(null); // Thêm vào back stack để có thể quay lại
+        transaction.commit();
+    }
+
 
     private void openAccountFragment(Fragment fragment) {
         FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
@@ -161,7 +169,7 @@ public class DangKyFragment extends Fragment {
         DatabaseReference database = FirebaseDatabase.getInstance().getReference("user");
 
         // Tạo đối tượng người dùng mới
-        User newUser = new User("avata1.png",email, "", "", name, "","","");
+        User newUser = new User("avata1.png",email , "", "", name,"","","");
 
         // Thêm người dùng vào cơ sở dữ liệu
         String userId = database.push().getKey(); // Tạo ID ngẫu nhiên cho người dùng

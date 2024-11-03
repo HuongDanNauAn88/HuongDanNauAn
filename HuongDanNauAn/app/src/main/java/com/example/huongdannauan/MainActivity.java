@@ -31,12 +31,17 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         bottomNavigationView = findViewById(R.id.bottom_navigation);
 
-        // Đặt fragment mặc định khi mở ứng dụng
-        if (savedInstanceState == null) {
-            loadFragment(new HomeFragment());
+        // Kiểm tra nếu đã lưu user hiện tại sau khi người dùng đăng nhập
+        if (TrangThai.currentUser != null && TrangThai.currentUser.getEmail() != null && !TrangThai.currentUser.getEmail().isEmpty()) {
+            // Người dùng đã đăng nhập, tải AccountFragment
+            loadFragment(new AccountFragment());
+        } else {
+            // Nếu chưa đăng nhập, tải HomeFragment làm mặc định
+            if (savedInstanceState == null) {
+                loadFragment(new HomeFragment());
+            }
         }
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -48,19 +53,21 @@ public class MainActivity extends AppCompatActivity {
                 if (itemId == R.id.nav_home) {
                     selectedFragment = new HomeFragment();
                 } else if (itemId == R.id.nav_account) {
-                    if(TrangThai.userEmail.isEmpty()){
+                    // Kiểm tra TrangThai.currentUser để xác định trạng thái đăng nhập
+                    if (TrangThai.currentUser == null || TrangThai.currentUser.getEmail() == null || TrangThai.currentUser.getEmail().isEmpty()) {
+                        // Chuyển đến trang đăng nhập nếu chưa đăng nhập
                         selectedFragment = new DangNhapFragment();
                     } else {
+                        // Chuyển đến trang tài khoản nếu đã đăng nhập
                         selectedFragment = new AccountFragment();
                     }
-
                 }
 
                 return loadFragment(selectedFragment);
             }
         });
-
     }
+
 
     private boolean loadFragment(Fragment fragment) {
         if (fragment != null) {

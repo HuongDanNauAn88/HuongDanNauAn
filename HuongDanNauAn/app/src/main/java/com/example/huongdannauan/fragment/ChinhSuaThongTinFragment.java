@@ -26,6 +26,7 @@ import com.example.huongdannauan.model.TrangThai;
 import com.example.huongdannauan.model.User;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
 public class ChinhSuaThongTinFragment extends Fragment {
 
     private static final int PICK_IMAGE = 1;
@@ -75,7 +76,6 @@ public class ChinhSuaThongTinFragment extends Fragment {
         return view;
     }
 
-
     private void openGallery() {
         Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(intent, PICK_IMAGE);
@@ -103,6 +103,7 @@ public class ChinhSuaThongTinFragment extends Fragment {
         // Validate input
         if (name.isEmpty() || age.isEmpty() || selectedImageUri == null) {
             Log.e("Validation", "Please fill all fields and select an image.");
+            Toast.makeText(getActivity(), "Vui lòng điền đầy đủ thông tin và chọn ảnh.", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -133,6 +134,7 @@ public class ChinhSuaThongTinFragment extends Fragment {
             Log.e("Firebase", "Invalid user ID.");
         }
     }
+
     private void openAccountFragment(Fragment fragment) {
         FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.fragment_container, fragment);
@@ -140,5 +142,3 @@ public class ChinhSuaThongTinFragment extends Fragment {
         transaction.commit();
     }
 }
-
-
