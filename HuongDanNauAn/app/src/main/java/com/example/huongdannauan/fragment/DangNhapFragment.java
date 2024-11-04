@@ -80,6 +80,11 @@ public class DangNhapFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_dang_nhap, container, false);
+
+        if(TrangThai.userEmail!=null && !TrangThai.userEmail.isEmpty()){
+            openAccountFragment(new AccountFragment());
+        }
+
         dangKy = (TextView) view.findViewById(R.id.txtDK);
         edEmail = (EditText) view.findViewById(R.id.edEmail);
         edPass = (EditText) view.findViewById(R.id.edPass);
