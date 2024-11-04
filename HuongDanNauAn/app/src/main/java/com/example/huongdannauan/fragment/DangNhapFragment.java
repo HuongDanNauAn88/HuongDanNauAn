@@ -1,6 +1,7 @@
 package com.example.huongdannauan.fragment;
 
 import android.app.ProgressDialog;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -81,9 +82,17 @@ public class DangNhapFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_dang_nhap, container, false);
 
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("UserPrefs", getContext().MODE_PRIVATE);
+        String savedEmail = sharedPreferences.getString("userEmail", null); // Trả về null nếu không tìm thấy
+
         if(TrangThai.userEmail!=null && !TrangThai.userEmail.isEmpty()){
             openAccountFragment(new AccountFragment());
         }
+        if(savedEmail!=null && !savedEmail.isEmpty()){
+            openAccountFragment(new AccountFragment());
+        }
+
+        Toast.makeText(getContext(), savedEmail, Toast.LENGTH_SHORT).show();
 
         dangKy = (TextView) view.findViewById(R.id.txtDK);
         edEmail = (EditText) view.findViewById(R.id.edEmail);
@@ -136,6 +145,13 @@ public class DangNhapFragment extends Fragment {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             TrangThai.userEmail = email;
+
+                            // Hoặc lưu vào SharedPreferences để giữ lâu hơn
+                            SharedPreferences sharedPreferences = getActivity().getSharedPreferences("UserPrefs", getContext().MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                            editor.putString("userEmail", email);
+                            editor.apply();
+
                             Bundle args = getArguments();
                             if (args != null && "ChiTietMonAnFragment".equals(args.getString("return_fragment"))) {
                                 // Quay lại Fragment Món ăn
@@ -188,5 +204,6 @@ public class DangNhapFragment extends Fragment {
                 });
 
     }
+
 
 }

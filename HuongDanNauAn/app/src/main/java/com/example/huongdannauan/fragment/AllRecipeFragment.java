@@ -255,8 +255,7 @@ public class AllRecipeFragment extends Fragment {
                 if (recipe.getDishTypes() != null && recipe.getCuisines() != null) {
                     if (recipe.getTitle().toLowerCase().contains(mParam1.toLowerCase()) ||
                             recipe.getCuisines().contains(mParam1) ||
-                            recipe.getDishTypes().contains(mParam1) ||
-                            recipe.getSummary().toLowerCase().contains(mParam1.toLowerCase())
+                            recipe.getDishTypes().contains(mParam1)
                     ) {
                         filteredList.add(recipe);
                     }

@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.huongdannauan.R;
+import com.example.huongdannauan.model.TrangThai;
 import com.example.huongdannauan.model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -132,6 +133,7 @@ public class DangKyFragment extends Fragment {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             addUser(TenDN,email);
+                            TrangThai.userEmail = email;
                             // Đăng ký thành công, chuyển hướng đến AccountFragment
                             openAccountFragment(new AccountFragment());
                         } else {
