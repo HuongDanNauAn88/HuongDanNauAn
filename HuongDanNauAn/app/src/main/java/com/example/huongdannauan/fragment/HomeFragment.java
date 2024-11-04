@@ -15,6 +15,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -47,7 +48,8 @@ public class HomeFragment extends Fragment {
     RecyclerView recyclerView2;
     private RecipeAdapter recipeAdapter2;
     private List<Recipe> recipeList2;
-    TextView txtXemAll;
+    TextView txtXemAll, txtSearch;
+    Button btnSeach;
     ProgressBar progressBar1, progressBar2;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -103,8 +105,10 @@ public class HomeFragment extends Fragment {
         recyclerView1 = view.findViewById(R.id.recyclerViewHome1);
         recyclerView2 = view.findViewById(R.id.recyclerViewHome2);
         txtXemAll = view.findViewById(R.id.txtXemAll);
+        txtSearch = view.findViewById(R.id.search_edit_text);
+        btnSeach = view.findViewById(R.id.search_button);
 
-        eventXemAll();
+        eventClick();
 
         progressBar1.setVisibility(View.VISIBLE);
         progressBar2.setVisibility(View.VISIBLE);
@@ -178,7 +182,7 @@ public class HomeFragment extends Fragment {
         });
     }
 
-    void eventXemAll(){
+    void eventClick(){
         txtXemAll.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -187,6 +191,17 @@ public class HomeFragment extends Fragment {
                         .replace(R.id.fragment_container, allRecipeFragment)
                         .addToBackStack(null)
                         .commit();
+            }
+        });
+        btnSeach.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AllRecipeFragment allRecipeFragment = AllRecipeFragment.newInstance(txtSearch.getText().toString(), "");
+                getParentFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, allRecipeFragment)
+                        .addToBackStack(null)
+                        .commit();
+                Toast.makeText(getContext(), txtSearch.getText().toString(), Toast.LENGTH_SHORT).show();
             }
         });
     }

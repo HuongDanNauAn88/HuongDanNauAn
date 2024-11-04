@@ -19,10 +19,15 @@ import java.util.List;
 public class AllRecipeAdapter extends RecyclerView.Adapter<AllRecipeAdapter.AllRecipeViewHolder> {
     private List<Recipe> recipeList;
     private Context context;
+    private RecipeAdapter.OnRecipeClickListener listener;
+    public interface OnRecipeClickListener {
+        void onRecipeClick(int recipeId);
+    }
 
-    public AllRecipeAdapter(Context context, List<Recipe> recipeList) {
+    public AllRecipeAdapter(Context context, List<Recipe> recipeList, RecipeAdapter.OnRecipeClickListener listener) {
         this.context = context;
         this.recipeList = recipeList;
+        this.listener = listener;
     }
 
     @NonNull
@@ -47,6 +52,13 @@ public class AllRecipeAdapter extends RecyclerView.Adapter<AllRecipeAdapter.AllR
 
         // Tải ảnh từ URL vào ImageView (sử dụng thư viện Glide)
         Glide.with(context).load(recipe.getImage()).into(holder.image);
+
+        // Gắn sự kiện click vào ViewHolder
+        holder.itemView.setOnClickListener(v -> {
+            if (listener != null && recipe.getId() != null) {
+                listener.onRecipeClick(recipe.getId());
+            }
+        });
     }
 
     @Override
@@ -67,4 +79,5 @@ public class AllRecipeAdapter extends RecyclerView.Adapter<AllRecipeAdapter.AllR
             image = itemView.findViewById(R.id.recipe_image);
         }
     }
+
 }

@@ -194,7 +194,7 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -357,7 +357,7 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Món ăn phụ",
@@ -471,7 +471,7 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -645,12 +645,12 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Món ăn phụ",
         "Đồ ăn vặt",
-        "Món khai vị"
+        "Khai vị"
       ],
       "extendedIngredients": [
         {
@@ -737,7 +737,7 @@
       "cookingMinutes": 0,
       "cuisines": [
         "Địa Trung Hải",
-        "Tiếng Pháp",
+        "Pháp",
         "Châu Âu"
       ],
       "dishTypes": [
@@ -812,7 +812,7 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Món ăn phụ"
@@ -955,7 +955,7 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -1155,12 +1155,12 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Canh",
         "Đồ ăn vặt",
-        "Món khai vị"
+        "Khai vị"
       ],
       "extendedIngredients": [
         {
@@ -1243,7 +1243,7 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Món ăn phụ",
@@ -1326,12 +1326,12 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Canh",
         "Đồ ăn vặt",
-        "Món khai vị"
+        "Khai vị"
       ],
       "extendedIngredients": [
         {
@@ -1535,7 +1535,7 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -1638,7 +1638,7 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -1948,7 +1948,7 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -2050,7 +2050,7 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -2145,7 +2145,7 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -2250,7 +2250,7 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -2335,7 +2335,7 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -2458,14 +2458,14 @@
       "cookingMinutes": 0,
       "cuisines": [
         "Địa Trung Hải",
-        "Tiếng Pháp",
+        "Pháp",
         "Châu Âu"
       ],
       "dishTypes": [
         "Bữa trưa",
         "Món ăn chính",
         "Đồ ăn vặt",
-        "Món khai vị",
+        "Khai vị",
         "Bữa tối"
       ],
       "extendedIngredients": [
@@ -2672,7 +2672,7 @@
       "cookingMinutes": 0,
       "cuisines": [
         "Châu Âu",
-        "Ailen"
+        "Ireland"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -2754,7 +2754,7 @@
             },
             {
               "number": 8,
-              "step": "Hủy bỏ và loại bỏ lá nguyệt quế. Để làm nước sốt mù tạt Ailen, kết hợp bột ngô, đường, mù tạt khô và muối trong một cái chảo trung bình;Khuấy đều."
+              "step": "Hủy bỏ và loại bỏ lá nguyệt quế. Để làm nước sốt mù tạt Ireland, kết hợp bột ngô, đường, mù tạt khô và muối trong một cái chảo trung bình;Khuấy đều."
             },
             {
               "number": 9,
@@ -2770,7 +2770,7 @@
             },
             {
               "number": 12,
-              "step": "Phục vụ với nước sốt mù tạt Ailen."
+              "step": "Phục vụ với nước sốt mù tạt Ireland."
             }
           ]
         }
@@ -2778,7 +2778,7 @@
       "cookingMinutes": 0,
       "cuisines": [
         "Châu Âu",
-        "Ailen"
+        "Ireland"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -2843,8 +2843,8 @@
       "id": 640136,
       "image": "https://img.spoonacular.com/recipes/640136-556x370.jpg",
       "preparationMinutes": 0,
-      "summary": "Công thức thịt bò ngô và bắp cải với nước sốt mù tạt Ailen có thể thỏa mãn cơn thèm châu Âu của bạn trong khoảng 4 giờ 30 phút .Công thức này phục vụ 6 và có giá 5,39 đô la mỗi khẩu phần.Một phần của đĩa này chứa khoảng 51g protein , 49g chất béo  và tổng cộng 835 calo .Nó là hoàn hảo cho st.Ngày Patrick .27 người đã thực hiện công thức này và sẽ làm lại.Một vài người thực sự thích Món ăn chính này.Đó là một lựa chọn tốt nếu bạn đang theo chế độ ăn kiêng không có gluten .Nó được mang đến cho bạn bởi Foodista.Một hỗn hợp của lòng đỏ trứng, rau mùi tây, đường, và một số ít các thành phần khác là tất cả những gì cần thiết để làm cho công thức này trở nên tuyệt vời.Với một thìa điểm 89%, món ăn này là tuyệt vời.Các công thức nấu ăn tương tự là  Kênh Ailen và bắp cải , httpshayspoonacular.com/recipes/corned-beef-and-cabbage-stromboli-with-guinness-mustard-1081725 thịt bò và bắp cải stromboli với Guinness Mustard .",
-      "title": "Thịt bò và bắp cải với nước sốt mù tạt Ailen"
+      "summary": "Công thức thịt bò ngô và bắp cải với nước sốt mù tạt Ireland có thể thỏa mãn cơn thèm châu Âu của bạn trong khoảng 4 giờ 30 phút .Công thức này phục vụ 6 và có giá 5,39 đô la mỗi khẩu phần.Một phần của đĩa này chứa khoảng 51g protein , 49g chất béo  và tổng cộng 835 calo .Nó là hoàn hảo cho st.Ngày Patrick .27 người đã thực hiện công thức này và sẽ làm lại.Một vài người thực sự thích Món ăn chính này.Đó là một lựa chọn tốt nếu bạn đang theo chế độ ăn kiêng không có gluten .Nó được mang đến cho bạn bởi Foodista.Một hỗn hợp của lòng đỏ trứng, rau mùi tây, đường, và một số ít các thành phần khác là tất cả những gì cần thiết để làm cho công thức này trở nên tuyệt vời.Với một thìa điểm 89%, món ăn này là tuyệt vời.Các công thức nấu ăn tương tự là  Kênh Ireland và bắp cải , httpshayspoonacular.com/recipes/corned-beef-and-cabbage-stromboli-with-guinness-mustard-1081725 thịt bò và bắp cải stromboli với Guinness Mustard .",
+      "title": "Thịt bò và bắp cải với nước sốt mù tạt Ireland"
     },
     "640693": {
       "analyzedInstructions": [
@@ -2873,13 +2873,13 @@
       "cookingMinutes": 0,
       "cuisines": [
         "Địa Trung Hải",
-        "Tiếng Pháp",
+        "Pháp",
         "Châu Âu"
       ],
       "dishTypes": [
         "Món ăn phụ",
         "Đồ ăn vặt",
-        "Món khai vị"
+        "Khai vị"
       ],
       "extendedIngredients": [
         {
@@ -3118,7 +3118,7 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -3172,7 +3172,7 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -3480,7 +3480,7 @@
       "dishTypes": [
         "Thức ăn nhỏ",
         "Đồ ăn vặt",
-        "Món khai vị"
+        "Khai vị"
       ],
       "extendedIngredients": [
         {
@@ -3563,7 +3563,7 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -3647,7 +3647,7 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -3896,7 +3896,7 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -4015,7 +4015,7 @@
       "dishTypes": [
         "Thức ăn nhỏ",
         "Đồ ăn vặt",
-        "Món khai vị"
+        "Khai vị"
       ],
       "extendedIngredients": [
         {
@@ -4193,7 +4193,7 @@
         "Món ăn phụ",
         "Xa lát",
         "Đồ ăn vặt",
-        "Món khai vị"
+        "Khai vị"
       ],
       "extendedIngredients": [
         {
@@ -4684,7 +4684,7 @@
       "cookingMinutes": 0,
       "cuisines": [
         "Châu Âu",
-        "Ailen"
+        "Ireland"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -4868,7 +4868,7 @@
       "dishTypes": [
         "Canh",
         "Đồ ăn vặt",
-        "Món khai vị"
+        "Khai vị"
       ],
       "extendedIngredients": [
         {
@@ -5894,7 +5894,7 @@
       ],
       "dishTypes": [
         "Đồ ăn vặt",
-        "Món khai vị"
+        "Khai vị"
       ],
       "extendedIngredients": [
         {
@@ -6300,7 +6300,7 @@
         "Bữa trưa",
         "Món ăn chính",
         "Đồ ăn vặt",
-        "Món khai vị",
+        "Khai vị",
         "Bữa tối"
       ],
       "extendedIngredients": [
@@ -6389,7 +6389,7 @@
       "cookingMinutes": 0,
       "cuisines": [
         "Địa Trung Hải",
-        "Tiếng Pháp",
+        "Pháp",
         "Châu Âu"
       ],
       "dishTypes": [
@@ -7620,7 +7620,7 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -7697,7 +7697,7 @@
       "id": 649141,
       "image": "https://img.spoonacular.com/recipes/649141-556x370.jpg",
       "preparationMinutes": 0,
-      "summary": "La Bellan Ý Thổ Nhĩ Kỳ Burger là một Món ăn chính của Mỹ.Công thức này phục vụ 4. Một khẩu phần chứa 846 calo , 64g protein  và 51g chất béo .Đối với $ 5,65 mỗi khẩu phần , công thức này bao gồm 50% các yêu cầu hàng ngày của bạn về vitamin và khoáng chất.Từ việc chuẩn bị đến tấm, công thức này mất khoảng 30 phút .2 người đã thử và thích công thức này.Nó được mang đến cho bạn bởi Foodista.Một hỗn hợp của hạt thông, ớt chuông, húng quế và một số ít các thành phần khác là tất cả những gì cần thiết để làm cho công thức này rất ngon.Nhìn chung, công thức này kiếm được một loại thìa ngoạn mục là 84%. Thổ Nhĩ Kỳ & Bellan Asian rau diếp ,  burger lớn rất giống với công thức này.",
+      "summary": "La Bellan Ý Thổ Nhĩ Kỳ Burger là một Món ăn chính của Mỹ.Công thức này phục vụ 4. Một khẩu phần chứa 846 calo , 64g protein  và 51g chất béo .Đối với $ 5,65 mỗi khẩu phần , công thức này bao gồm 50% các yêu cầu hàng ngày của bạn về vitamin và khoáng chất.Từ việc chuẩn bị đến tấm, công thức này mất khoảng 30 phút .2 người đã thử và thích công thức này.Nó được mang đến cho bạn bởi Foodista.Một hỗn hợp của hạt thông, ớt chuông, húng quế và một số ít các thành phần khác là tất cả những gì cần thiết để làm cho công thức này rất ngon.Nhìn chung, công thức này kiếm được một loại thìa ngoạn mục là 84%. Thổ Nhĩ Kỳ & Bellan Châu Á rau diếp ,  burger lớn rất giống với công thức này.",
       "title": "La Bella Ý Thổ Nhĩ Kỳ Burger"
     },
     "649270": {
@@ -7819,7 +7819,7 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -7915,7 +7915,7 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Món ăn phụ"
@@ -8039,7 +8039,7 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -8162,7 +8162,7 @@
         "Canh",
         "Khai vị",
         "Đồ ăn vặt",
-        "Món khai vị"
+        "Khai vị"
       ],
       "extendedIngredients": [
         {
@@ -8642,7 +8642,7 @@
         "Xa lát",
         "Khai vị",
         "Đồ ăn vặt",
-        "Món khai vị"
+        "Khai vị"
       ],
       "extendedIngredients": [
         {
@@ -8723,7 +8723,7 @@
       "dishTypes": [
         "Thức ăn nhỏ",
         "Đồ ăn vặt",
-        "Món khai vị"
+        "Khai vị"
       ],
       "extendedIngredients": [
         {
@@ -9030,7 +9030,7 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -9137,7 +9137,7 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -9310,7 +9310,7 @@
       "cookingMinutes": 0,
       "cuisines": [
         "Địa Trung Hải",
-        "Tiếng Pháp",
+        "Pháp",
         "Châu Âu"
       ],
       "dishTypes": [
@@ -9465,7 +9465,7 @@
       "dishTypes": [
         "Thức ăn nhỏ",
         "Đồ ăn vặt",
-        "Món khai vị"
+        "Khai vị"
       ],
       "extendedIngredients": [
         {
@@ -9526,7 +9526,7 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -9727,7 +9727,7 @@
       "cookingMinutes": 0,
       "cuisines": [
         "Châu Âu",
-        "Ailen"
+        "Ireland"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -9803,7 +9803,7 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -9893,7 +9893,7 @@
       "dishTypes": [
         "Canh",
         "Đồ ăn vặt",
-        "Món khai vị"
+        "Khai vị"
       ],
       "extendedIngredients": [
         {
@@ -9982,12 +9982,12 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Canh",
         "Đồ ăn vặt",
-        "Món khai vị"
+        "Khai vị"
       ],
       "extendedIngredients": [
         {
@@ -10205,12 +10205,12 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Canh",
         "Đồ ăn vặt",
-        "Món khai vị"
+        "Khai vị"
       ],
       "extendedIngredients": [
         {
@@ -10361,7 +10361,7 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -10510,7 +10510,7 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -10631,7 +10631,7 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -10828,7 +10828,7 @@
       ],
       "dishTypes": [
         "Đồ ăn vặt",
-        "Món khai vị"
+        "Khai vị"
       ],
       "extendedIngredients": [
         {
@@ -11015,7 +11015,7 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -11200,7 +11200,7 @@
         "Món ăn phụ",
         "Xa lát",
         "Đồ ăn vặt",
-        "Món khai vị"
+        "Khai vị"
       ],
       "extendedIngredients": [
         {
@@ -11336,7 +11336,7 @@
       "id": 663126,
       "image": "https://img.spoonacular.com/recipes/663126-556x370.jpg",
       "preparationMinutes": 0,
-      "summary": "Salad mì ống Thái có thể chỉ là công thức Asian  mà bạn đang tìm kiếm.Công thức này phục vụ 2 và có giá 2,02 đô la cho mỗi khẩu phần.Món ăn chính này có 558 calo , 20g protein  và 16g chất béo  mỗi lần phục vụ.Từ việc chuẩn bị đến đĩa, công thức này mất khoảng 45 phút .Nếu bạn có ớt, nước chanh, nước tương và một vài thành phần khác trong tay, bạn có thể làm nó.1 người đã thử và thích công thức này.Nó được mang đến cho bạn bởi Foodista.Đó là một lựa chọn tốt nếu bạn đang theo chế độ ăn kiêng không có sữa và pescataria .Với một thìa điểm 87%, món ăn này rất lớn.Hãy thử  salad mì đậu phộng Thái ,  salad  cho công thức nấu ăn tương tự.",
+      "summary": "Salad mì ống Thái có thể chỉ là công thức Châu Á  mà bạn đang tìm kiếm.Công thức này phục vụ 2 và có giá 2,02 đô la cho mỗi khẩu phần.Món ăn chính này có 558 calo , 20g protein  và 16g chất béo  mỗi lần phục vụ.Từ việc chuẩn bị đến đĩa, công thức này mất khoảng 45 phút .Nếu bạn có ớt, nước chanh, nước tương và một vài thành phần khác trong tay, bạn có thể làm nó.1 người đã thử và thích công thức này.Nó được mang đến cho bạn bởi Foodista.Đó là một lựa chọn tốt nếu bạn đang theo chế độ ăn kiêng không có sữa và pescataria .Với một thìa điểm 87%, món ăn này rất lớn.Hãy thử  salad mì đậu phộng Thái ,  salad  cho công thức nấu ăn tương tự.",
       "title": "Salad mì ống Thái"
     },
     "663149": {
@@ -11645,7 +11645,7 @@
         "Bữa trưa",
         "Món ăn chính",
         "Đồ ăn vặt",
-        "Món khai vị",
+        "Khai vị",
         "Bữa tối"
       ],
       "extendedIngredients": [
@@ -11755,7 +11755,7 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -11847,12 +11847,12 @@
       "cookingMinutes": 0,
       "cuisines": [
         "Châu Âu",
-        "Ailen"
+        "Ireland"
       ],
       "dishTypes": [
         "Canh",
         "Đồ ăn vặt",
-        "Món khai vị"
+        "Khai vị"
       ],
       "extendedIngredients": [
         {
@@ -12133,14 +12133,14 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Tiếng Anh",
+        "Anh",
         "Scotland",
         "Anh",
         "Châu Âu"
       ],
       "dishTypes": [
         "Đồ ăn vặt",
-        "Món khai vị"
+        "Khai vị"
       ],
       "extendedIngredients": [
         {
@@ -12237,7 +12237,7 @@
       "dishTypes": [
         "Thức ăn nhỏ",
         "Đồ ăn vặt",
-        "Món khai vị"
+        "Khai vị"
       ],
       "extendedIngredients": [
         {
@@ -12706,7 +12706,7 @@
       "id": 664835,
       "image": "https://img.spoonacular.com/recipes/664835-556x370.jpg",
       "preparationMinutes": 0,
-      "summary": "Nếu bạn muốn thêm các công thức nấu ăn miễn phí sữa và pescataria vào hộp công thức của bạn, salad mì Việt Nam với đậu phụ có thể là một công thức bạn nên thử.Một phục vụ chứa 816 calo , 27g protein  và 40g chất béo .Đối với $ 3,91 mỗi khẩu phần , bạn có được một Món ăn chính phục vụ 2. Công thức này từ Foodista đòi hỏi nước cốt chanh, đường mía, ớt và hành tây mùa xuân.Công thức này là điển hình của ẩm thực Việt Nam.1 người đã thử và thích công thức này.Từ việc chuẩn bị đến đĩa, công thức này mất khoảng 45 phút .Tất cả những điều được xem xét, chúng tôi đã quyết định công thức này xứng đáng với số điểm thì 82%.Điểm này là tuyệt vời.Hãy thử  Việt phụ Việt Nam.com/Bí quyết/Việt Nam-Beef-Noodle-Soup-With-Asian-Greens-Okay-Việt Nam-Nhật Bản-664830  Súp thịt bò Việt Nam= \"https:A> cho các công thức nấu ăn tương tự.",
+      "summary": "Nếu bạn muốn thêm các công thức nấu ăn miễn phí sữa và pescataria vào hộp công thức của bạn, salad mì Việt Nam với đậu phụ có thể là một công thức bạn nên thử.Một phục vụ chứa 816 calo , 27g protein  và 40g chất béo .Đối với $ 3,91 mỗi khẩu phần , bạn có được một Món ăn chính phục vụ 2. Công thức này từ Foodista đòi hỏi nước cốt chanh, đường mía, ớt và hành tây mùa xuân.Công thức này là điển hình của ẩm thực Việt Nam.1 người đã thử và thích công thức này.Từ việc chuẩn bị đến đĩa, công thức này mất khoảng 45 phút .Tất cả những điều được xem xét, chúng tôi đã quyết định công thức này xứng đáng với số điểm thì 82%.Điểm này là tuyệt vời.Hãy thử  Việt phụ Việt Nam.com/Bí quyết/Việt Nam-Beef-Noodle-Soup-With-Châu Á-Greens-Okay-Việt Nam-Nhật Bản-664830  Súp thịt bò Việt Nam= \"https:A> cho các công thức nấu ăn tương tự.",
       "title": "Gỏi mì lạnh với đậu phụ"
     },
     "664847": {
@@ -12737,7 +12737,7 @@
       "dishTypes": [
         "Thức ăn nhỏ",
         "Đồ ăn vặt",
-        "Món khai vị"
+        "Khai vị"
       ],
       "extendedIngredients": [
         {
@@ -12838,7 +12838,7 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -13000,7 +13000,7 @@
       ],
       "dishTypes": [
         "Đồ ăn vặt",
-        "Món khai vị"
+        "Khai vị"
       ],
       "extendedIngredients": [
         {
@@ -13032,7 +13032,7 @@
     "673457": {
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -13124,7 +13124,7 @@
       "cuisines": [
         "Địa Trung Hải",
         "Ý",
-        "European"
+        "Châu Âu"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -13208,7 +13208,7 @@
       ],
       "cookingMinutes": 20,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Món ăn phụ",
@@ -13363,7 +13363,7 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Vietnamese",
+        "Việt Nam",
         "Châu Á"
       ],
       "dishTypes": [
@@ -13638,7 +13638,7 @@
     "775621": {
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -13803,7 +13803,7 @@
       "dishTypes": [
         "Thức ăn nhỏ",
         "Đồ ăn vặt",
-        "Món khai vị"
+        "Khai vị"
       ],
       "extendedIngredients": [
         {
@@ -13897,7 +13897,7 @@
       ],
       "cookingMinutes": 20,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -13967,7 +13967,7 @@
       ],
       "cookingMinutes": 25,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -14036,7 +14036,7 @@
       ],
       "cookingMinutes": 120,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -14399,7 +14399,7 @@
       "dishTypes": [
         "Thức ăn nhỏ",
         "Đồ ăn vặt",
-        "Món khai vị"
+        "Khai vị"
       ],
       "extendedIngredients": [
         {
@@ -14480,7 +14480,7 @@
       "dishTypes": [
         "Món ăn phụ",
         "Đồ ăn vặt",
-        "Món khai vị"
+        "Khai vị"
       ],
       "extendedIngredients": [
         {
@@ -14551,7 +14551,7 @@
         "Bữa trưa",
         "Món ăn chính",
         "Đồ ăn vặt",
-        "Món khai vị",
+        "Khai vị",
         "Bữa tối"
       ],
       "extendedIngredients": [
@@ -14626,7 +14626,7 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Tiếng Tây Ban Nha",
+        "Tây Ban Nha",
         "Châu Âu"
       ],
       "dishTypes": [
@@ -14667,7 +14667,7 @@
       "id": 1095806,
       "image": "https://img.spoonacular.com/recipes/1095806-556x370.jpg",
       "preparationMinutes": 0,
-      "summary": "Nếu bạn muốn thêm các công thức nấu ăn châu Âu  vào hộp công thức của bạn, philê cá hồi kiểu Tây Ban Nha có thể là một công thức bạn nên thử.Công thức này phục vụ 2. Một khẩu phần chứa 945 calo , 53g protein  và 60g chất béo .Đối với $ 7,8 mỗi khẩu phần , công thức này bao gồm 54% các yêu cầu hàng ngày của bạn về vitamin và khoáng chất.1 người đã bị ấn tượng bởi công thức này.Công thức này từ Foodista đòi hỏi hạt tiêu xay, ô liu, phi lê cá hồi và muối biển thô.Nó hoạt động tốt như một Món ăn chính đắt tiền.Từ việc chuẩn bị đến đĩa, công thức này mất khoảng 30 phút .Đó là một lựa chọn tốt nếu bạn đang theo dõi chế độ ăn kiêng không có gluten, không có sữa, toàn bộ 30 và pescataria .Tất cả những điều được xem xét, chúng tôi đã quyết định công thức này xứng đáng với số điểm thì 92%.Điểm này là tuyệt vời.Nếu bạn thích công thức này, bạn cũng có thể thích các công thức nấu ăn như  Chăn philon Salmon ngon Asian Style ,  crock pot salmon fillets và rau theo kiểu châu Á , và  crock pot pot cá hồi philê và rau kiểu châu Á .",
+      "summary": "Nếu bạn muốn thêm các công thức nấu ăn châu Âu  vào hộp công thức của bạn, philê cá hồi kiểu Tây Ban Nha có thể là một công thức bạn nên thử.Công thức này phục vụ 2. Một khẩu phần chứa 945 calo , 53g protein  và 60g chất béo .Đối với $ 7,8 mỗi khẩu phần , công thức này bao gồm 54% các yêu cầu hàng ngày của bạn về vitamin và khoáng chất.1 người đã bị ấn tượng bởi công thức này.Công thức này từ Foodista đòi hỏi hạt tiêu xay, ô liu, phi lê cá hồi và muối biển thô.Nó hoạt động tốt như một Món ăn chính đắt tiền.Từ việc chuẩn bị đến đĩa, công thức này mất khoảng 30 phút .Đó là một lựa chọn tốt nếu bạn đang theo dõi chế độ ăn kiêng không có gluten, không có sữa, toàn bộ 30 và pescataria .Tất cả những điều được xem xét, chúng tôi đã quyết định công thức này xứng đáng với số điểm thì 92%.Điểm này là tuyệt vời.Nếu bạn thích công thức này, bạn cũng có thể thích các công thức nấu ăn như  Chăn philon Salmon ngon Châu Á Style ,  crock pot salmon fillets và rau theo kiểu châu Á , và  crock pot pot cá hồi philê và rau kiểu châu Á .",
       "title": "Philê cá hồi kiểu Tây Ban Nha"
     },
     "1095836": {
@@ -14775,7 +14775,7 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Món ăn phụ",
@@ -14829,7 +14829,7 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -14978,7 +14978,7 @@
       "cookingMinutes": 0,
       "cuisines": [
         "Việt Nam",
-        "Asian"
+        "Châu Á"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -15060,7 +15060,7 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -15168,7 +15168,7 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Vietnamese",
+        "Việt Nam",
         "Châu Á"
       ],
       "dishTypes": [
@@ -15261,7 +15261,7 @@
       "cookingMinutes": 0,
       "cuisines": [
         "Hàn Quốc",
-        "Asian"
+        "Châu Á"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -15361,7 +15361,7 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -15534,7 +15534,7 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Món ăn phụ"
@@ -15688,12 +15688,12 @@
       ],
       "cookingMinutes": 0,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Canh",
         "Đồ ăn vặt",
-        "Món khai vị"
+        "Khai vị"
       ],
       "extendedIngredients": [
         {
@@ -15782,7 +15782,7 @@
       ],
       "cookingMinutes": 4,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Món ăn phụ",
@@ -16016,7 +16016,7 @@
       ],
       "cookingMinutes": 135,
       "cuisines": [
-        "Người Mỹ"
+        "Mỹ"
       ],
       "dishTypes": [
         "Bữa trưa",
@@ -16163,27 +16163,60 @@
       "title": "Thai Street Món ăn được làm tại nhà - Đẹp và điên cuồng ngon trong 30 phút"
     }
   },
-  "user": [
-    {
-      "avata": "avata1.png",
-      "monandaluu": "",
-      "monandaxem": "",
-      "name": "Bảo",
-      "tintucdaluu": ""
+  "user": {
+    "-OASzh1nh6mORhy61KSj": {
+      "avatar": "avata1.png",
+      "monAnDaLuu": "",
+      "monAnDaXem": "",
+      "name": "Thị Nở",
+      "tinTucDaLuu": ""
     },
-    {
-      "avata": "avata2.png",
-      "monandaluu": "",
-      "monandaxem": "",
-      "name": "Thư",
-      "tintucdaluu": ""
+    "-OAT-1_sYD6ybCI2jg55": {
+      "avatar": "avata1.png",
+      "monAnDaLuu": "",
+      "monAnDaXem": "",
+      "name": "Không có tên",
+      "tinTucDaLuu": ""
     },
-    {
-      "avata": "avata3.png",
-      "monandaluu": "",
-      "monandaxem": "",
-      "name": "Tài",
-      "tintucdaluu": ""
+    "-OAWOgIxozlcTFficvkx": {
+      "age": "16",
+      "avatar": "content://media/external_primary/images/media/1000003613",
+      "email": "tttt5358@gmail.com",
+      "gender": "Nam",
+      "monAnDaLuu": "",
+      "monAnDaXem": "",
+      "name": "Tài khùng",
+      "tinTucDaLuu": ""
+    },
+    "-OAWb0a6ZLluWnmA7C1Q": {
+      "age": "",
+      "avatar": "avata1.png",
+      "email": "buiquocb3101@gmail.com",
+      "gender": "",
+      "monAnDaLuu": "",
+      "monAnDaXem": "",
+      "name": "baobaoshop",
+      "tinTucDaLuu": ""
+    },
+    "-OAWdl942-BfRfT6rpnS": {
+      "age": "30",
+      "avatar": "content://media/external_primary/images/media/1000003613",
+      "email": "buiquocbao.it@gmail.com",
+      "gender": "Nam",
+      "monAnDaLuu": "",
+      "monAnDaXem": "",
+      "name": "tài điên",
+      "tinTucDaLuu": ""
+    },
+    "-OAXMD3g-8CO9FdpROdZ": {
+      "age": "",
+      "avatar": "avata1.png",
+      "email": "fdhhj@gmail.com",
+      "gender": "",
+      "monAnDaLuu": "",
+      "monAnDaXem": "",
+      "name": "hhh",
+      "tinTucDaLuu": ""
     }
-  ]
+  }
 }

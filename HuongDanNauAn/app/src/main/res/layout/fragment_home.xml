@@ -75,7 +75,7 @@
                         android:layout_marginBottom="8dp"
                         android:paddingHorizontal="8dp"
                         android:paddingVertical="8dp"
-                        android:text="Món ăn nổi bật"
+                        android:text="MÓN ĂN NỔI BẬT"
                         android:textColor="#333"
                         android:textSize="26sp"
                         android:textStyle="bold" />
@@ -128,7 +128,7 @@
                         android:layout_marginBottom="8dp"
                         android:paddingHorizontal="8dp"
                         android:paddingVertical="8dp"
-                        android:text="Món ăn Việt Nam"
+                        android:text="MÓN ĂN VIÊT NAM"
                         android:textColor="#333"
                         android:textSize="26sp"
                         android:textStyle="bold" />

@@ -1,6 +1,7 @@
 package com.example.huongdannauan.fragment;
 
 import android.app.ProgressDialog;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -81,6 +82,19 @@ public class DangNhapFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_dang_nhap, container, false);
+
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("UserPrefs", getContext().MODE_PRIVATE);
+        String savedEmail = sharedPreferences.getString("userEmail", null); // Trả về null nếu không tìm thấy
+
+        if(TrangThai.userEmail!=null && !TrangThai.userEmail.isEmpty()){
+            openAccountFragment(new AccountFragment());
+        }
+        if(savedEmail!=null && !savedEmail.isEmpty()){
+            openAccountFragment(new AccountFragment());
+        }
+
+        Toast.makeText(getContext(), savedEmail, Toast.LENGTH_SHORT).show();
+
         dangKy = (TextView) view.findViewById(R.id.txtDK);
         edEmail = (EditText) view.findViewById(R.id.edEmail);
         edPass = (EditText) view.findViewById(R.id.edPass);
@@ -126,6 +140,7 @@ public class DangNhapFragment extends Fragment {
         }
 
         mAuth.signInWithEmailAndPassword(email, password)
+<<<<<<< HEAD
                 .addOnCompleteListener(requireActivity(), task -> {
                     if (task.isSuccessful()) {
                         // Create a User object and save email
@@ -138,6 +153,28 @@ public class DangNhapFragment extends Fragment {
                         Bundle args = getArguments();
                         if (args != null && "ChiTietMonAnFragment".equals(args.getString("return_fragment"))) {
                             openAccountFragment(ChiTietMonAnFragment.newInstance(args.getString("idmonan"), ""));
+=======
+                .addOnCompleteListener(requireActivity(), new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            TrangThai.userEmail = email;
+
+                            // Hoặc lưu vào SharedPreferences để giữ lâu hơn
+                            SharedPreferences sharedPreferences = getActivity().getSharedPreferences("UserPrefs", getContext().MODE_PRIVATE);
+                            SharedPreferences.Editor editor = sharedPreferences.edit();
+                            editor.putString("userEmail", email);
+                            editor.apply();
+
+                            Bundle args = getArguments();
+                            if (args != null && "ChiTietMonAnFragment".equals(args.getString("return_fragment"))) {
+                                // Quay lại Fragment Món ăn
+                                openAccountFragment(ChiTietMonAnFragment.newInstance(args.getString(("idmonan")), ""));
+                            } else {
+                                // Nếu không, mở Fragment tài khoản như mặc định
+                                openAccountFragment(new AccountFragment());
+                            }
+>>>>>>> main
                         } else {
                             openAccountFragment(new AccountFragment());
                         }
@@ -184,5 +221,6 @@ public class DangNhapFragment extends Fragment {
                 });
 
     }
+
 
 }

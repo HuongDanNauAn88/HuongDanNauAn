@@ -90,4 +90,11 @@
         android:textColor="#888"
         android:layout_gravity="center_horizontal"
         android:paddingTop="12dp" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:textColor="#333"
+        android:gravity="center"
+        android:textSize="26sp"/>
+
 </LinearLayout>
