@@ -81,7 +81,7 @@
                 android:layout_height="48dp"
                 android:background="@drawable/edit_text_background"
                 android:hint="Nhập mật khẩu"
-                android:inputType="textEmailAddress"
+                android:inputType="textPassword"
                 android:padding="12dp"
                 android:textSize="16sp" />
 
@@ -100,7 +100,7 @@
                 android:layout_height="48dp"
                 android:background="@drawable/edit_text_background"
                 android:hint="Nhập lại mật khẩu"
-                android:inputType="textEmailAddress"
+                android:inputType="textPassword"
                 android:padding="12dp"
                 android:textSize="16sp" />
 

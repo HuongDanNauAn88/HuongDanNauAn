@@ -83,17 +83,17 @@ public class DangNhapFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_dang_nhap, container, false);
 
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("UserPrefs", getContext().MODE_PRIVATE);
-        String savedEmail = sharedPreferences.getString("userEmail", null); // Trả về null nếu không tìm thấy
+//        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("UserPrefs", getContext().MODE_PRIVATE);
+//        String savedEmail = sharedPreferences.getString("userEmail", null); // Trả về null nếu không tìm thấy
 
         if(TrangThai.userEmail!=null && !TrangThai.userEmail.isEmpty()){
             openAccountFragment(new AccountFragment());
         }
-        if(savedEmail!=null && !savedEmail.isEmpty()){
-            openAccountFragment(new AccountFragment());
-        }
-
-        Toast.makeText(getContext(), savedEmail, Toast.LENGTH_SHORT).show();
+//        if(savedEmail!=null && !savedEmail.isEmpty()){
+//            openAccountFragment(new AccountFragment());
+//        }
+//
+//        Toast.makeText(getContext(), savedEmail, Toast.LENGTH_SHORT).show();
 
         dangKy = (TextView) view.findViewById(R.id.txtDK);
         edEmail = (EditText) view.findViewById(R.id.edEmail);
@@ -140,31 +140,35 @@ public class DangNhapFragment extends Fragment {
         }
 
         mAuth.signInWithEmailAndPassword(email, password)
-<<<<<<< HEAD
-                .addOnCompleteListener(requireActivity(), task -> {
-                    if (task.isSuccessful()) {
-                        // Create a User object and save email
-                        User currentUser = new User(); // Initialize with empty values
-                        currentUser.setEmail(email);
-                        // Optionally set other fields as needed
-                        TrangThai.currentUser = currentUser; // Save the User object
+//                .addOnCompleteListener(requireActivity(), task -> {
+//                    if (task.isSuccessful()) {
+//                        // Create a User object and save email
+//                        User currentUser = new User(); // Initialize with empty values
+//                        currentUser.setEmail(email);
+//                        // Optionally set other fields as needed
+//                        TrangThai.currentUser = currentUser; // Save the User object
+//
+//                        // Proceed to the next fragment
+//                        Bundle args = getArguments();
+//                        if (args != null && "ChiTietMonAnFragment".equals(args.getString("return_fragment"))) {
+//                            openAccountFragment(ChiTietMonAnFragment.newInstance(args.getString("idmonan"), ""));
 
-                        // Proceed to the next fragment
-                        Bundle args = getArguments();
-                        if (args != null && "ChiTietMonAnFragment".equals(args.getString("return_fragment"))) {
-                            openAccountFragment(ChiTietMonAnFragment.newInstance(args.getString("idmonan"), ""));
-=======
                 .addOnCompleteListener(requireActivity(), new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             TrangThai.userEmail = email;
 
-                            // Hoặc lưu vào SharedPreferences để giữ lâu hơn
-                            SharedPreferences sharedPreferences = getActivity().getSharedPreferences("UserPrefs", getContext().MODE_PRIVATE);
-                            SharedPreferences.Editor editor = sharedPreferences.edit();
-                            editor.putString("userEmail", email);
-                            editor.apply();
+                            User currentUser = new User(); // Initialize with empty values
+                        currentUser.setEmail(email);
+                        // Optionally set other fields as needed
+                        TrangThai.currentUser = currentUser; // Save the User object
+
+//                            // Hoặc lưu vào SharedPreferences để giữ lâu hơn
+//                            SharedPreferences sharedPreferences = getActivity().getSharedPreferences("UserPrefs", getContext().MODE_PRIVATE);
+//                            SharedPreferences.Editor editor = sharedPreferences.edit();
+//                            editor.putString("userEmail", email);
+//                            editor.apply();
 
                             Bundle args = getArguments();
                             if (args != null && "ChiTietMonAnFragment".equals(args.getString("return_fragment"))) {
@@ -174,14 +178,12 @@ public class DangNhapFragment extends Fragment {
                                 // Nếu không, mở Fragment tài khoản như mặc định
                                 openAccountFragment(new AccountFragment());
                             }
->>>>>>> main
+
                         } else {
                             openAccountFragment(new AccountFragment());
                         }
-                    } else {
-                        String errorMessage = task.getException() != null ? task.getException().getMessage() : "Đăng nhập thất bại.";
-                        Toast.makeText(requireContext(), errorMessage, Toast.LENGTH_SHORT).show();
                     }
+
                 });
     }
 

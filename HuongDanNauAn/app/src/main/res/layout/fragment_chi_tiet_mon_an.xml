@@ -40,7 +40,7 @@
                 android:textStyle="bold"
                 android:paddingTop="8dp"
                 android:textColor="#090"
-                android:text="Ten"
+                android:text="Loading..."
                 android:gravity="center"
                 android:paddingBottom="8dp"/>
 
@@ -63,6 +63,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="24sp"
+                android:text="..."
                 android:paddingBottom="8dp" />
 
             <View

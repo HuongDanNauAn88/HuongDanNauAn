@@ -50,7 +50,7 @@
             <ImageView
                 android:id="@+id/banner_image"
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
+                android:layout_height="200dp"
                 android:layout_marginVertical="8dp"
                 android:contentDescription="Banner Image"
                 android:scaleType="centerCrop"
@@ -128,7 +128,7 @@
                         android:layout_marginBottom="8dp"
                         android:paddingHorizontal="8dp"
                         android:paddingVertical="8dp"
-                        android:text="MÓN ĂN VIÊT NAM"
+                        android:text="MÓN ĂN VIỆT NAM"
                         android:textColor="#333"
                         android:textSize="26sp"
                         android:textStyle="bold" />
@@ -170,7 +170,7 @@
                 android:textSize="26sp"/>
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
+                android:layout_height="70dp"
                 android:background="@color/primary"
                 android:textColor="#333"
                 android:gravity="center"

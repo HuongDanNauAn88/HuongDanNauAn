@@ -2,6 +2,7 @@ package com.example.huongdannauan.fragment;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -241,6 +242,8 @@ public class ChiTietMonAnFragment extends Fragment {
         btnSend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 if(TrangThai.userEmail.isEmpty()) {
                     // Điều hướng từ Fragment Món ăn đến Fragment Đăng nhập
                     Bundle args = new Bundle();

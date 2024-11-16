@@ -116,6 +116,7 @@ public class ChinhSuaThongTinFragment extends Fragment {
         String userId = TrangThai.currentUser.getEmail(); // Use the current user's ID for updating
 
         if (userId != null) {
+//            String cleanedImg = userId.replaceAll("[.#$\\[\\]]", "");
             User updatedUser = new User(imageUrl, email, "", "", name, "", gender, age);
             database.child(userId).setValue(updatedUser).addOnCompleteListener(task -> {
                 if (task.isSuccessful()) {

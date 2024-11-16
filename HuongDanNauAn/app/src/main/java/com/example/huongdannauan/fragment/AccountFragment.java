@@ -1,10 +1,10 @@
 package com.example.huongdannauan.fragment;
 
-<<<<<<< HEAD
+
 import android.net.Uri;
-=======
+
 import android.content.SharedPreferences;
->>>>>>> main
+
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
@@ -78,7 +78,6 @@ public class AccountFragment extends Fragment {
 
         return view;
     }
-<<<<<<< HEAD
 
     private void getUserInfoByEmail() {
         String emailToCheck = TrangThai.currentUser.getEmail();
@@ -113,9 +112,7 @@ public class AccountFragment extends Fragment {
         });
     }
     void openFragmentOfUser(LinearLayout linearLayout, Fragment fragment, boolean isDangXuat) {
-        if (isDangXuat) TrangThai.userEmail = "";
-=======
-    void openFragmentOfUser(LinearLayout linearLayout, Fragment fragment, boolean isDangXuat){
+
         if(isDangXuat) {
             TrangThai.userEmail="";
 //            SharedPreferences sharedPreferences = getActivity().getSharedPreferences("UserPrefs", getContext().MODE_PRIVATE);
@@ -124,7 +121,7 @@ public class AccountFragment extends Fragment {
 //            editor.apply(); // Hoặc dùng editor.commit() nếu muốn đồng bộ ngay lập tức
 
         }
->>>>>>> main
+
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
