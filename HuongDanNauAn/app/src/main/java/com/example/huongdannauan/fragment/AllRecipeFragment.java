@@ -28,14 +28,17 @@ import com.example.huongdannauan.adapter.AllRecipeAdapter;
 import com.example.huongdannauan.adapter.RecipeAdapter;
 import com.example.huongdannauan.model.Ingredient;
 import com.example.huongdannauan.model.Recipe;
+import com.example.huongdannauan.model.TrangThai;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;

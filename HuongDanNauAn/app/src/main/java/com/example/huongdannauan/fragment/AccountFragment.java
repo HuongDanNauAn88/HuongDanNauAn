@@ -73,7 +73,7 @@ public class AccountFragment extends Fragment {
         // Mở các fragment cho các LinearLayout khác
         openFragmentOfUser(cnMonAnYeuThich, new MonAnYeuThichFragment(), false);
         openFragmentOfUser(cnTinTucDaLuu, new TinTucDaLuuFragment(), false);
-        openFragmentOfUser(cnBinhLuanCuaToi, new BinhLuanCuaToiFragment(), false);
+        openFragmentOfUser(cnBinhLuanCuaToi, new LichSuXemFragment(), false);
         openFragmentOfUser(cnChinhSuaThongTin, new ChinhSuaThongTinFragment(), false);
 
         return view;

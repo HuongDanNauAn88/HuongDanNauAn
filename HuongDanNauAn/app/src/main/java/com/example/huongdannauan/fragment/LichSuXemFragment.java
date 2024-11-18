@@ -1,10 +1,8 @@
 package com.example.huongdannauan.fragment;
 
 import android.annotation.SuppressLint;
-import android.app.AlertDialog;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -16,7 +14,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.huongdannauan.R;
 import com.example.huongdannauan.adapter.AllRecipeAdapter;
@@ -24,7 +21,6 @@ import com.example.huongdannauan.model.Recipe;
 import com.example.huongdannauan.model.TrangThai;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
@@ -32,17 +28,14 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link MonAnYeuThichFragment#newInstance} factory method to
+ * Use the {@link LichSuXemFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class MonAnYeuThichFragment extends Fragment {
+public class LichSuXemFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -60,7 +53,7 @@ public class MonAnYeuThichFragment extends Fragment {
     ProgressBar progressBar;
     private TextView resultCountText;
 
-    public MonAnYeuThichFragment() {
+    public LichSuXemFragment() {
         // Required empty public constructor
     }
 
@@ -70,11 +63,11 @@ public class MonAnYeuThichFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment MonAnYeuThichFragment.
+     * @return A new instance of fragment LichSuXemFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static MonAnYeuThichFragment newInstance(String param1, String param2) {
-        MonAnYeuThichFragment fragment = new MonAnYeuThichFragment();
+    public static LichSuXemFragment newInstance(String param1, String param2) {
+        LichSuXemFragment fragment = new LichSuXemFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -96,7 +89,7 @@ public class MonAnYeuThichFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_mon_an_yeu_thich, container, false);
+        View view = inflater.inflate(R.layout.fragment_lich_su_xem, container, false);
 
         recyclerView = view.findViewById(R.id.lvMonAnYeuThich);
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
@@ -115,7 +108,7 @@ public class MonAnYeuThichFragment extends Fragment {
         // Kiểm tra đăng nhập
         if(TrangThai.userEmail==null || TrangThai.userEmail.isEmpty()){
             Bundle args = new Bundle();
-            args.putString("return_fragment", "MonAnYeuThichFragment");
+            args.putString("return_fragment", "LichSuXemFragment");
             args.putString("idmonan", mParam1);
             DangNhapFragment loginFragment = new DangNhapFragment();
             loginFragment.setArguments(args);
@@ -141,12 +134,12 @@ public class MonAnYeuThichFragment extends Fragment {
                 if (dataSnapshot.exists()) {
                     // Lặp qua các kết quả
                     for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
-                        if (userSnapshot.child("monAnDaLuu").exists()){
-                            String monAnDaLuu = userSnapshot.child("monAnDaLuu").getValue(String.class);
-                            Log.e("BAOBAOSHOP monandaluu", TrangThai.userEmail);
-                            // Kiểm tra nếu "monAnDaLuu" không null
+                        if (userSnapshot.child("monAnDaXem").exists()){
+                            String monAnDaLuu = userSnapshot.child("monAnDaXem").getValue(String.class);
+                            Log.e("BAOBAOSHOP monAnDaXem", TrangThai.userEmail);
+                            // Kiểm tra nếu "monAnDaXem" không null
                             if (monAnDaLuu != null && !monAnDaLuu.isEmpty()) {
-                                // Chuyển đổi "monAnDaLuu" thành danh sách các ID
+                                // Chuyển đổi "monAnDaXem" thành danh sách các ID
                                 List<String> listMonAn = new ArrayList<>(Arrays.asList(monAnDaLuu.split(",")));
 
                                 databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -159,7 +152,7 @@ public class MonAnYeuThichFragment extends Fragment {
                                             }
                                         }
                                         adapterAllRecipe.notifyDataSetChanged();
-                                        resultCountText.setText("Bạn đã thích "+recipeList.size()+" món.");
+                                        resultCountText.setText(recipeList.size()+" món ăn xem gần nhất.");
                                     }
 
                                     @Override
@@ -172,7 +165,7 @@ public class MonAnYeuThichFragment extends Fragment {
 
                     }
                     adapterAllRecipe.notifyDataSetChanged();
-                    resultCountText.setText("Bạn đã thích "+recipeList.size()+" món.");
+                    resultCountText.setText(recipeList.size()+" món ăn xem gần nhất.");
                 } else {
                     System.out.println("No user found with email: " + TrangThai.userEmail);
                 }

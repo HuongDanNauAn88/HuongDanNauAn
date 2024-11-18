@@ -140,6 +140,7 @@ public class ChiTietMonAnFragment extends Fragment {
         progressBar2.setVisibility(View.VISIBLE);
 
         addEvent();
+        luuLichSuXem();
 
         // Tham chiếu tới Firebase Database
         databaseReference1 = FirebaseDatabase.getInstance().getReference().child("recipes").child(mParam1);
@@ -445,7 +446,7 @@ public class ChiTietMonAnFragment extends Fragment {
                                 Toast.makeText(getContext(), "Đã hủy yêu thích", Toast.LENGTH_SHORT).show();
                             } else {
                                 // Nếu ID_MONAN không tồn tại thì thêm
-                                listMonAn.add(ID_MONAN);
+                                listMonAn.add(0,ID_MONAN);
                                 imgLove.setImageResource(R.drawable.icon_loved);
                                 Toast.makeText(getContext(), "Đã thích", Toast.LENGTH_SHORT).show();
                             }
@@ -469,6 +470,53 @@ public class ChiTietMonAnFragment extends Fragment {
                 System.out.println("Database error: " + databaseError.getMessage());
             }
         });
+    }
+
+    public void luuLichSuXem(){
+        // Lưu lại lịch sử xem nếu đã đăng nhập
+        if(TrangThai.userEmail!=null && !TrangThai.userEmail.isEmpty()){
+            DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("user");
+            // Truy vấn tìm kiếm theo trường "email"
+            Query query = userRef.orderByChild("email").equalTo(TrangThai.userEmail);
+            // Lắng nghe kết quả truy vấn
+            query.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        // Lặp qua các kết quả
+                        for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
+                            String monAnDaLuu = userSnapshot.child("monAnDaXem").getValue(String.class);
+                            // Kiểm tra nếu "monAnDaXem" không null
+                            if (monAnDaLuu != null) {
+                                // Chuyển đổi "monAnDaXem" thành danh sách các ID
+                                List<String> listMonAn = new ArrayList<>(Arrays.asList(monAnDaLuu.split(",")));
+                                if (listMonAn.contains(String.valueOf(ID_MONAN))) {
+                                    // Nếu recipeId tồn tại thì xóa
+                                    listMonAn.remove(String.valueOf(ID_MONAN));
+                                }else if (listMonAn.size() >= 20) {
+                                    listMonAn.remove(listMonAn.size() - 1);
+                                }
+                                // Thêm vào đầu mảng
+                                listMonAn.add(0, String.valueOf(ID_MONAN));
+                                // Cập nhật lại "monAnDaLuu" trong Firebase
+                                String updatedMonAnDaLuu = String.join(",", listMonAn);
+                                userSnapshot.getRef().child("monAnDaXem").setValue(updatedMonAnDaLuu);
+                            } else {
+                                // Nếu "monAnDaLuu" null, khởi tạo danh sách mới
+                                userSnapshot.getRef().child("monAnDaXem").setValue(ID_MONAN);
+                            }
+                        }
+                    } else {
+                        System.out.println("No user found with email: " + TrangThai.userEmail);
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    System.out.println("Database error: " + databaseError.getMessage());
+                }
+            });
+        }
     }
 
 

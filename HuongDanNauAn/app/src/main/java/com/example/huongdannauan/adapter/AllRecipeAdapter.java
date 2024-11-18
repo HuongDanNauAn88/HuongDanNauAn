@@ -1,6 +1,8 @@
 package com.example.huongdannauan.adapter;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.huongdannauan.R;
+import com.example.huongdannauan.fragment.DangNhapFragment;
 import com.example.huongdannauan.model.Recipe;
+import com.example.huongdannauan.model.TrangThai;
 
 import java.util.List;
 

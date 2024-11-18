@@ -26,7 +26,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Bạn đang nấu gì?"
+                android:text="Bạn muốn nấu gì cho hôm ?"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
@@ -38,6 +38,8 @@
                 android:layout_weight="1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingVertical="8dp"
+                android:background="@drawable/rounded_background1"
                 android:scrollbars="vertical" />
 
             <TextView

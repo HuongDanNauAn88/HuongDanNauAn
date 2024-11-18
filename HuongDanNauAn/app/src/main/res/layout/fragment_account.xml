@@ -95,7 +95,7 @@
                     <ImageView
                         android:layout_width="24dp"
                         android:layout_height="24dp"
-                        android:src="@drawable/icon_comment"
+                        android:src="@drawable/icon_history"
                         android:contentDescription="Settings"
                         android:layout_marginEnd="16dp"/>
 
