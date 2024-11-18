@@ -30,6 +30,9 @@ public class AllRecipeAdapter extends RecyclerView.Adapter<AllRecipeAdapter.AllR
         this.listener = listener;
     }
 
+    // Phương thức updateData để cập nhật danh sách
+
+
     @NonNull
     @Override
     public AllRecipeViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

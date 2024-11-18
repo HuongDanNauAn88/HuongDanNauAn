@@ -1,6 +1,7 @@
 package com.example.huongdannauan.fragment;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
@@ -24,6 +25,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.huongdannauan.R;
@@ -34,13 +36,16 @@ import com.example.huongdannauan.model.Instruction;
 import com.example.huongdannauan.model.Recipe;
 import com.example.huongdannauan.model.Step;
 import com.example.huongdannauan.model.TrangThai;
+import com.example.huongdannauan.model.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -64,7 +69,7 @@ public class ChiTietMonAnFragment extends Fragment {
     Recipe recipe;
     private DatabaseReference databaseReference1;
     private DatabaseReference databaseReference2;
-    private ImageView imageDish;
+    private ImageView imageDish, imgLove;
     private TextView titleDish, summaryDish, preparationMinutes, cookingMinutes, healthScore, cuisines;
     private LinearLayout ingredientsContainer, loaimonanContainer, huongdanNauContainer;
     private RecyclerView recyclerViewComment;
@@ -127,6 +132,7 @@ public class ChiTietMonAnFragment extends Fragment {
         recyclerViewComment = view.findViewById(R.id.commentRecyclerView);
         edittextComment = view.findViewById(R.id.editTextComment);
         btnSend = view.findViewById(R.id.buttonSend);
+        imgLove = view.findViewById(R.id.imgLove);
 
         progressBar1 = view.findViewById(R.id.progressBar1);
         progressBar1.setVisibility(View.VISIBLE);
@@ -181,15 +187,20 @@ public class ChiTietMonAnFragment extends Fragment {
             }
         });
 
+        // Lấy trang thái yêu thích
+        if(!TrangThai.userEmail.isEmpty()) {
+            getUserByEmail();
+        }
+
         return view;
     }
     private void updateUI(Recipe recipe) {
         Glide.with(this).load(recipe.getImage()).into(imageDish);
         titleDish.setText(recipe.getTitle());
         summaryDish.setText(recipe.getSummary());
-        preparationMinutes.setText("Chuẩn bị: " + recipe.getPreparationMinutes() + " phút");
-        cookingMinutes.setText("Nấu: " + recipe.getCookingMinutes() + " phút");
-        healthScore.setText("Điểm sức khỏe: " + recipe.getHealthScore());
+        preparationMinutes.setText(String.valueOf(recipe.getPreparationMinutes()==0?30:recipe.getPreparationMinutes()) + " phút");
+        cookingMinutes.setText(String.valueOf(recipe.getCookingMinutes()==0?30:recipe.getCookingMinutes()) + " phút");
+        healthScore.setText(recipe.getHealthScore()+"");
 
         cuisines.setText(TextUtils.join(", ", recipe.getCuisines()));
 
@@ -245,14 +256,29 @@ public class ChiTietMonAnFragment extends Fragment {
 
 
                 if(TrangThai.userEmail.isEmpty()) {
-                    // Điều hướng từ Fragment Món ăn đến Fragment Đăng nhập
-                    Bundle args = new Bundle();
-                    args.putString("return_fragment", "ChiTietMonAnFragment");
-                    args.putString("idmonan", mParam1);
-                    DangNhapFragment loginFragment = new DangNhapFragment();
-                    loginFragment.setArguments(args);
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                    builder.setTitle("Đăng nhập");
+                    builder.setMessage("Đăng nhập để bình luận.");
 
-                    openAccountFragment(loginFragment);
+                    // Nút xác nhận
+                    builder.setPositiveButton("Đồng ý", (dialog, which) -> {
+
+                        // Điều hướng từ Fragment Món ăn đến Fragment Đăng nhập
+                        Bundle args = new Bundle();
+                        args.putString("return_fragment", "ChiTietMonAnFragment");
+                        args.putString("idmonan", mParam1);
+                        DangNhapFragment loginFragment = new DangNhapFragment();
+                        loginFragment.setArguments(args);
+
+                        openAccountFragment(loginFragment);
+                    });
+
+                    // Nút hủy
+                    builder.setNegativeButton("Hủy", (dialog, which) -> dialog.dismiss());
+
+                    // Hiển thị AlertDialog
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
                 }else {
                     FirebaseDatabase database = FirebaseDatabase.getInstance();
                     DatabaseReference commentsRef = database.getReference("comments/"+mParam1).push(); // id mon an
@@ -287,6 +313,39 @@ public class ChiTietMonAnFragment extends Fragment {
                                     System.err.println("Lỗi khi thêm comment: " + task.getException());
                                 }
                             });
+                }
+            }
+        });
+        imgLove.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!TrangThai.userEmail.isEmpty()) {
+                    luuMonAn();
+                } else {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                    builder.setTitle("Đăng nhập");
+                    builder.setMessage("Đăng nhập để lưu món ăn yêu thích.");
+
+                    // Nút xác nhận
+                    builder.setPositiveButton("Đồng ý", (dialog, which) -> {
+
+                        // Điều hướng từ Fragment Món ăn đến Fragment Đăng nhập
+                        Bundle args = new Bundle();
+                        args.putString("return_fragment", "ChiTietMonAnFragment");
+                        args.putString("idmonan", mParam1);
+                        DangNhapFragment loginFragment = new DangNhapFragment();
+                        loginFragment.setArguments(args);
+
+                        openAccountFragment(loginFragment);
+                    });
+
+                    // Nút hủy
+                    builder.setNegativeButton("Hủy", (dialog, which) -> dialog.dismiss());
+
+                    // Hiển thị AlertDialog
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+
                 }
             }
         });
@@ -325,5 +384,92 @@ public class ChiTietMonAnFragment extends Fragment {
             Log.e("DangNhapFragment", "Activity is null, cannot open fragment");
         }
     }
+
+    public void getUserByEmail() {
+        // Tham chiếu tới node "user"
+        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("user");
+
+        // Truy vấn tìm kiếm theo trường "email"
+        Query query = userRef.orderByChild("email").equalTo(TrangThai.userEmail);
+
+        // Lắng nghe kết quả truy vấn
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    // Lặp qua các kết quả
+                    for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
+                        String kq = userSnapshot.child("monAnDaLuu").getValue(String.class);
+                        if(kq!=null){
+                            if(kq.contains(ID_MONAN)){
+                                imgLove.setImageResource(R.drawable.icon_loved);
+                            }
+                        }
+                    }
+                } else {
+                    System.out.println("No user found with email: " + TrangThai.userEmail);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("Database error: " + databaseError.getMessage());
+            }
+        });
+    }
+    public void luuMonAn() {
+        // Tham chiếu tới node "user"
+        DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("user");
+
+        // Truy vấn tìm kiếm theo trường "email"
+        Query query = userRef.orderByChild("email").equalTo(TrangThai.userEmail);
+
+        // Lắng nghe kết quả truy vấn
+        query.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    // Lặp qua các kết quả
+                    for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
+                        String monAnDaLuu = userSnapshot.child("monAnDaLuu").getValue(String.class);
+
+                        // Kiểm tra nếu "monAnDaLuu" không null
+                        if (monAnDaLuu != null) {
+                            // Chuyển đổi "monAnDaLuu" thành danh sách các ID
+                            List<String> listMonAn = new ArrayList<>(Arrays.asList(monAnDaLuu.split(",")));
+
+                            if (listMonAn.contains(ID_MONAN)) {
+                                // Nếu ID_MONAN tồn tại thì xóa
+                                listMonAn.remove(ID_MONAN);
+                                imgLove.setImageResource(R.drawable.icon_no_love);
+                                Toast.makeText(getContext(), "Đã hủy yêu thích", Toast.LENGTH_SHORT).show();
+                            } else {
+                                // Nếu ID_MONAN không tồn tại thì thêm
+                                listMonAn.add(ID_MONAN);
+                                imgLove.setImageResource(R.drawable.icon_loved);
+                                Toast.makeText(getContext(), "Đã thích", Toast.LENGTH_SHORT).show();
+                            }
+
+                            // Cập nhật lại "monAnDaLuu" trong Firebase
+                            String updatedMonAnDaLuu = String.join(",", listMonAn);
+                            userSnapshot.getRef().child("monAnDaLuu").setValue(updatedMonAnDaLuu);
+                        } else {
+                            // Nếu "monAnDaLuu" null, khởi tạo danh sách mới
+                            userSnapshot.getRef().child("monAnDaLuu").setValue(ID_MONAN);
+                            imgLove.setImageResource(R.drawable.icon_loved);
+                        }
+                    }
+                } else {
+                    System.out.println("No user found with email: " + TrangThai.userEmail);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                System.out.println("Database error: " + databaseError.getMessage());
+            }
+        });
+    }
+
 
 }
