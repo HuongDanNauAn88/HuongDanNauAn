@@ -1,27 +1,36 @@
 package com.example.huongdannauan.fragment;
 
+import static com.example.huongdannauan.fragment.ChinhSuaThongTinFragment.API_TOKEN;
 
 import android.net.Uri;
-
-import android.content.SharedPreferences;
-
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.bumptech.glide.Glide;
+import com.example.huongdannauan.Interface.CloudflareApi;
 import com.example.huongdannauan.R;
 import com.example.huongdannauan.model.TrangThai;
+import com.example.huongdannauan.model.ImageResponseModel;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class AccountFragment extends Fragment {
     LinearLayout cnMonAnYeuThich, cnTinTucDaLuu, cnBinhLuanCuaToi, cnChinhSuaThongTin, cnDangXuat;
@@ -46,9 +55,9 @@ public class AccountFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_account, container, false);
 
-        userNameTextView = view.findViewById(R.id.user_name); // Đảm bảo bạn có ID đúng
+        userNameTextView = view.findViewById(R.id.user_name);
         userEmailTextView = view.findViewById(R.id.user_email);
-        profileImageView = view.findViewById(R.id.profile_image); // Đảm bảo ID chính xác
+        profileImageView = view.findViewById(R.id.profile_image);
 
         userEmailTextView.setText(TrangThai.currentUser.getEmail());
         cnMonAnYeuThich = view.findViewById(R.id.CNMonAnYeuThich);
@@ -57,20 +66,17 @@ public class AccountFragment extends Fragment {
         cnChinhSuaThongTin = view.findViewById(R.id.CNChinhSuaThongTin);
         cnDangXuat = view.findViewById(R.id.CNDangXuat);
 
-        // Thêm sự kiện cho nút đăng xuất
+        // Xử lý sự kiện đăng xuất
         cnDangXuat.setOnClickListener(v -> {
-            // Xóa thông tin người dùng
-            TrangThai.currentUser = null; // Xóa thông tin người dùng
-            TrangThai.userEmail = ""; // Xóa email người dùng
-
-            // Chuyển hướng đến trang đăng nhập
+            TrangThai.currentUser = null;
+            TrangThai.userEmail = "";
             openFragmentOfUser(cnDangXuat ,new DangNhapFragment(), true);
         });
 
-        // Gọi hàm để lấy thông tin người dùng
+        // Lấy thông tin người dùng từ Firebase
         getUserInfoByEmail();
 
-        // Mở các fragment cho các LinearLayout khác
+        // Mở các fragment khác
         openFragmentOfUser(cnMonAnYeuThich, new MonAnYeuThichFragment(), false);
         openFragmentOfUser(cnTinTucDaLuu, new TinTucDaLuuFragment(), false);
         openFragmentOfUser(cnBinhLuanCuaToi, new LichSuXemFragment(), false);
@@ -90,15 +96,23 @@ public class AccountFragment extends Fragment {
                     String email = userSnapshot.child("email").getValue(String.class);
                     if (email != null && email.equals(emailToCheck)) {
                         String userName = userSnapshot.child("name").getValue(String.class);
-                        String avatarUri = userSnapshot.child("avatar").getValue(String.class);
+                        String avatarUri = userSnapshot.child("avatar").getValue(String.class); // URL ảnh
 
                         userNameTextView.setText(userName);
                         userEmailTextView.setText(email);
 
+                        // Kiểm tra và tải ảnh nếu có
                         if (avatarUri != null && !avatarUri.isEmpty()) {
+                            // Nếu URL ảnh có sẵn từ Firebase
                             Glide.with(getContext())
-                                    .load(Uri.parse(avatarUri))
+                                    .load(avatarUri)  // URL ảnh từ Firebase
                                     .into(profileImageView);
+                        } else {
+                            // Nếu không có avatar, gọi API Cloudflare để lấy lại ảnh (nếu cần)
+                            String imageId = userSnapshot.child("imageId").getValue(String.class); // ID ảnh
+                            if (imageId != null) {
+                                fetchImageFromCloudflare(imageId);
+                            }
                         }
                         break;
                     }
@@ -111,25 +125,59 @@ public class AccountFragment extends Fragment {
             }
         });
     }
+
+    private void fetchImageFromCloudflare(String imageId) {
+        // Retrofit setup
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://api.cloudflare.com/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        CloudflareApi cloudflareApi = retrofit.create(CloudflareApi.class);
+        String authHeader = "Bearer " + API_TOKEN;
+
+        // Gọi API để lấy thông tin ảnh từ Cloudflare
+        Call<ImageResponseModel> call = cloudflareApi.getImageDetails(authHeader, imageId);
+        call.enqueue(new Callback<ImageResponseModel>() {
+            @Override
+            public void onResponse(Call<ImageResponseModel> call, Response<ImageResponseModel> response) {
+                if (response.isSuccessful() && response.body() != null) {
+                    ImageResponseModel imageResponse = response.body();
+                    if (imageResponse.isSuccess()) {
+                        String imageUrl = imageResponse.getResult().getUrl();  // Lấy URL ảnh từ kết quả
+
+                        // Sử dụng Glide để tải ảnh
+                        Glide.with(getContext())
+                                .load(imageUrl)
+                                .into(profileImageView);
+                    } else {
+                        Log.e("Cloudflare", "Image fetch failed: " + imageResponse.getErrors());
+                        Toast.makeText(getContext(), "Lỗi khi lấy ảnh từ Cloudflare", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Log.e("Cloudflare", "Image fetch failed: " + response.message());
+                    Toast.makeText(getContext(), "Lỗi khi gọi API Cloudflare", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ImageResponseModel> call, Throwable t) {
+                Log.e("Cloudflare", "API call failed: " + t.getMessage());
+                Toast.makeText(getContext(), "Lỗi kết nối Cloudflare", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+
     void openFragmentOfUser(LinearLayout linearLayout, Fragment fragment, boolean isDangXuat) {
-
-        if(isDangXuat) {
-            TrangThai.userEmail="";
-//            SharedPreferences sharedPreferences = getActivity().getSharedPreferences("UserPrefs", getContext().MODE_PRIVATE);
-//            SharedPreferences.Editor editor = sharedPreferences.edit();
-//            editor.remove("userEmail"); // Xóa biến với khóa "userEmail"
-//            editor.apply(); // Hoặc dùng editor.commit() nếu muốn đồng bộ ngay lập tức
-
+        if (isDangXuat) {
+            TrangThai.userEmail = "";
         }
 
-        linearLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
-                transaction.replace(R.id.fragment_container, fragment);
-                transaction.addToBackStack(null);
-                transaction.commit();
-            }
+        linearLayout.setOnClickListener(v -> {
+            FragmentTransaction transaction = getParentFragmentManager().beginTransaction();
+            transaction.replace(R.id.fragment_container, fragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
         });
     }
 }

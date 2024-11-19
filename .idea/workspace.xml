@@ -5,7 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1ac65080-ef2c-4cff-80df-b58719b7e6ad" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/HuongDanNauAn/app/src/main/java/com/example/huongdannauan/model/ImageResponseModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HuongDanNauAn/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/HuongDanNauAn/app/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
