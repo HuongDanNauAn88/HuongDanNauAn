@@ -1,10 +1,12 @@
 package com.example.huongdannauan.fragment;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -12,8 +14,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -22,17 +26,22 @@ import android.widget.Toast;
 import com.example.huongdannauan.R;
 import com.example.huongdannauan.adapter.AllRecipeAdapter;
 import com.example.huongdannauan.adapter.RecipeAdapter;
+import com.example.huongdannauan.model.Ingredient;
 import com.example.huongdannauan.model.Recipe;
+import com.example.huongdannauan.model.TrangThai;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseException;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -52,11 +61,12 @@ public class AllRecipeFragment extends Fragment {
     private List<Recipe> recipeList = new ArrayList<>();
     private DatabaseReference databaseReference;
     private List<String> dishTypesList, vungmienList;
-    private ProgressBar progressBar1;
     private Spinner spinnerLoai, spinnerVungMien;
     private ArrayAdapter<String> adapterSpinnerLoai, adapterSpinnerVungMien;
-    private TextView resultCountText;
-    private String locLoai="Tất cả", locVungMien="Tất cả";
+    private ProgressBar progressBar1;
+    private TextView resultCountText, txtSearch;
+    private Button btnXoaLoc, btnSearch;
+    private String locLoai="Tất cả loại", locVungMien="Thế giới";
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -92,6 +102,7 @@ public class AllRecipeFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        setRetainInstance(true);
 
 
     }
@@ -103,21 +114,19 @@ public class AllRecipeFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_all_recipe, container, false);
 
+        btnXoaLoc = view.findViewById(R.id.btnXoaLoc);
+        btnSearch = view.findViewById(R.id.btnSearch);
+        txtSearch = view.findViewById(R.id.txtSearch);
+
         resultCountText = view.findViewById(R.id.resultCountText);
         resultCountText.setText("");
 
         recyclerView = view.findViewById(R.id.AllrecipeListView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
 
         progressBar1 = view.findViewById(R.id.progressBar1);
         spinnerLoai = view.findViewById(R.id.dishTypeSpinner);
         spinnerVungMien = view.findViewById(R.id.cuisineSpinner);
-
-        // Adapter All Mon an
-        adapterAllRecipe = new AllRecipeAdapter(getContext(), recipeList, recipeId -> {
-            openRecipeDetailFragment(recipeId);
-        });
-        recyclerView.setAdapter(adapterAllRecipe);
 
         // Firebase setup
         databaseReference = FirebaseDatabase.getInstance().getReference("recipes");
@@ -160,10 +169,43 @@ public class AllRecipeFragment extends Fragment {
             }
         });
 
+        addEvent();
+
         return view;
+    }
+    void addEvent(){
+        btnXoaLoc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                spinnerLoai.setSelection(0);
+                spinnerVungMien.setSelection(0);
+                txtSearch.setText("");
+                loadRecipesFromFirebase();
+                InputMethodManager imm = (InputMethodManager) requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                if (imm != null) {
+                    imm.hideSoftInputFromWindow(txtSearch.getWindowToken(), 0);
+                }
+            }
+        });
+        btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                filterKetQuaSearch(txtSearch.getText().toString());
+                filterKetQuaSearch(txtSearch.getText().toString());
+                InputMethodManager imm = (InputMethodManager) requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                if (imm != null) {
+                    imm.hideSoftInputFromWindow(txtSearch.getWindowToken(), 0);
+                }
+            }
+        });
     }
     private void loadRecipesFromFirebase() {
         progressBar1.setVisibility(View.VISIBLE);
+        // Adapter All Mon an
+        adapterAllRecipe = new AllRecipeAdapter(getContext(), recipeList, recipeId -> {
+            openRecipeDetailFragment(recipeId);
+        });
+        recyclerView.setAdapter(adapterAllRecipe);
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -189,17 +231,17 @@ public class AllRecipeFragment extends Fragment {
                     }
                 }
                 adapterAllRecipe.notifyDataSetChanged();
-                resultCountText.setText(recipeList.size()+" kết quả");
+                resultCountText.setText("Tìm thấy "+recipeList.size()+" kết quả");
 
                 dishTypesList.clear();
-                dishTypesList.add("Tất cả");
+                dishTypesList.add("Tất cả loại");
                 List<String> sortedDishTypesList = new ArrayList<>(uniqueDishTypes);
                 Collections.sort(sortedDishTypesList);
                 dishTypesList.addAll(sortedDishTypesList);
                 adapterSpinnerLoai.notifyDataSetChanged();
 
                 vungmienList.clear();
-                vungmienList.add("Tất cả");
+                vungmienList.add("Thế giới");
                 List<String> sortedVungMienList = new ArrayList<>(uniqueDishVungMien);
                 Collections.sort(sortedVungMienList);
                 vungmienList.addAll(sortedVungMienList);
@@ -214,20 +256,20 @@ public class AllRecipeFragment extends Fragment {
     }
     private void filterRecipesByType(String Lloai, String Lvungmien) {
         if(mParam1!=null && !mParam1.isEmpty() && lanSearch<2){
-            filterKetQuaSearch();
+            filterKetQuaSearch(mParam1);
             lanSearch++;
             return;
         }
         List<Recipe> filteredList = new ArrayList<>();
-        if(Lloai.equals("Tất cả") && Lvungmien.equals("Tất cả")){
+        if(Lloai.equals("Tất cả loại") && Lvungmien.equals("Thế giới")){
             filteredList = recipeList;
-        } else if(Lloai.equals("Tất cả") && !Lvungmien.equals("Tất cả")){
+        } else if(Lloai.equals("Tất cả loại") && !Lvungmien.equals("Thế giới")){
             for (Recipe recipe : recipeList) {
                 if (recipe.getCuisines() != null && recipe.getCuisines().contains(Lvungmien)) {
                     filteredList.add(recipe);
                 }
             }
-        }else if(!Lloai.equals("Tất cả") && Lvungmien.equals("Tất cả")){
+        }else if(!Lloai.equals("Tất cả loại") && Lvungmien.equals("Thế giới")){
             for (Recipe recipe : recipeList) {
                 if (recipe.getDishTypes() != null && recipe.getDishTypes().contains(Lloai)) {
                     filteredList.add(recipe);
@@ -242,31 +284,57 @@ public class AllRecipeFragment extends Fragment {
                 }
             }
         }
-        adapterAllRecipe = new AllRecipeAdapter(getContext(), filteredList, recipeId -> {
-            openRecipeDetailFragment(recipeId);
-        });
-        recyclerView.setAdapter(adapterAllRecipe);
-        resultCountText.setText(filteredList.size()+" kết quả");
-    }
-    private void filterKetQuaSearch() {
-        List<Recipe> filteredList = new ArrayList<>();
-
-            for (Recipe recipe : recipeList) {
-                if (recipe.getDishTypes() != null && recipe.getCuisines() != null) {
-                    if (recipe.getTitle().toLowerCase().contains(mParam1.toLowerCase()) ||
-                            recipe.getCuisines().contains(mParam1) ||
-                            recipe.getDishTypes().contains(mParam1)
-                    ) {
-                        filteredList.add(recipe);
-                    }
+        if(txtSearch.getText().toString()!=null && !txtSearch.getText().toString().trim().isEmpty()){
+            Iterator<Recipe> iterator = filteredList.iterator();
+            while (iterator.hasNext()) {
+                Recipe recipe = iterator.next();
+                if (!recipe.getTitle().equalsIgnoreCase(txtSearch.getText().toString())||
+                        !containsIngredient(recipe.getExtendedIngredients(), txtSearch.getText().toString())||
+                        !containsString(recipe.getDishTypes(), txtSearch.getText().toString())||
+                        !containsString(recipe.getCuisines(), txtSearch.getText().toString())
+                ) {
+                    iterator.remove();
                 }
             }
+            Log.e("TEST", txtSearch.getText().toString());
+        }
+        adapterAllRecipe = new AllRecipeAdapter(getContext(), filteredList, recipeId -> {
+            openRecipeDetailFragment(recipeId);
+        });
+        adapterAllRecipe.notifyDataSetChanged();
+        recyclerView.setAdapter(adapterAllRecipe);
+        resultCountText.setText("Tìm thấy "+filteredList.size()+" kết quả");
+    }
+    private void filterKetQuaSearch(String txtString) {
+        int position = dishTypesList.indexOf(txtString); // Tìm vị trí của "mParam1"
+        if (position != -1) {
+            spinnerLoai.setSelection(position); // Đặt giá trị mặc định nếu tìm thấy
+        } else spinnerLoai.setSelection(0);
+        int position1 = vungmienList.indexOf(txtString); // Tìm vị trí của "mParam1"
+        if (position1 != -1) {
+            spinnerVungMien.setSelection(position1); // Đặt giá trị mặc định nếu tìm thấy
+        } else spinnerVungMien.setSelection(0);
+
+        List<Recipe> filteredList = new ArrayList<>();
+        for (Recipe recipe : recipeList) {
+            if (recipe.getDishTypes() != null && recipe.getCuisines() != null) {
+                if (recipe.getTitle().toLowerCase().contains(txtString.toLowerCase()) ||
+                        containsString(recipe.getCuisines(), txtString) ||
+                        containsString(recipe.getDishTypes(), txtString) ||
+                        containsIngredient(recipe.getExtendedIngredients(), txtString)
+                ) {
+                    filteredList.add(recipe);
+                }
+            }
+        }
 
         adapterAllRecipe = new AllRecipeAdapter(getContext(), filteredList, recipeId -> {
             openRecipeDetailFragment(recipeId);
         });
+        adapterAllRecipe.notifyDataSetChanged();
         recyclerView.setAdapter(adapterAllRecipe);
-        resultCountText.setText(filteredList.size()+" kết quả " + mParam1);
+        resultCountText.setText("Tìm thấy "+filteredList.size()+" kết quả");
+        mParam1=null;
     }
     private void openRecipeDetailFragment(int recipeId) {
         ChiTietMonAnFragment chiTietMonAnFragment = ChiTietMonAnFragment.newInstance(String.valueOf(recipeId), "");
@@ -274,5 +342,21 @@ public class AllRecipeFragment extends Fragment {
                 .replace(R.id.fragment_container, chiTietMonAnFragment)
                 .addToBackStack(null)
                 .commit();
+    }
+    public boolean containsIngredient(List<Ingredient> ingredients, String ingredientName) {
+        for (Ingredient ingredient : ingredients) {
+            if (ingredient.getName().equalsIgnoreCase(ingredientName)) { // So sánh tên nguyên liệu
+                return true;
+            }
+        }
+        return false;
+    }
+    public boolean containsString(List<String> ingredients, String stringname) {
+        for (String ingredient : ingredients) {
+            if (ingredient.equalsIgnoreCase(stringname)) { // So sánh tên nguyên liệu
+                return true;
+            }
+        }
+        return false;
     }
 }

@@ -50,11 +50,63 @@
             <ImageView
                 android:id="@+id/banner_image"
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
+                android:layout_height="200dp"
                 android:layout_marginVertical="8dp"
                 android:contentDescription="Banner Image"
                 android:scaleType="centerCrop"
                 android:src="@drawable/banner_home" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="16dp"
+                android:padding="8dp"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginBottom="8dp"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="8dp"
+                        android:text="LOẠI MÓN ĂN"
+                        android:textColor="#333"
+                        android:textSize="26sp"
+                        android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/txtXemAllLoai"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="8dp"
+                        android:paddingHorizontal="8dp"
+                        android:paddingVertical="8dp"
+                        android:text="Xem tất cả"
+                        android:textColor="@color/primary"
+                        android:textSize="20sp"
+                        android:gravity="center"
+                        android:textStyle="italic" />
+                </LinearLayout>
+                <ProgressBar
+                    android:id="@+id/progressBarLoai"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone"
+                    android:layout_gravity="center" />
+
+
+                <!-- ListView ngang (RecyclerView) -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerViewLoai"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    tools:listitem="@layout/dishtype_item" />
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -87,7 +139,7 @@
                         android:paddingHorizontal="8dp"
                         android:paddingVertical="8dp"
                         android:text="Xem tất cả"
-                        android:textColor="#0040FF"
+                        android:textColor="#034C3C"
                         android:textSize="20sp"
                         android:gravity="center"
                         android:textStyle="italic" />
@@ -128,18 +180,19 @@
                         android:layout_marginBottom="8dp"
                         android:paddingHorizontal="8dp"
                         android:paddingVertical="8dp"
-                        android:text="MÓN ĂN VIÊT NAM"
+                        android:text="MÓN ĂN VIỆT NAM"
                         android:textColor="#333"
                         android:textSize="26sp"
                         android:textStyle="bold" />
                     <TextView
+                        android:id="@+id/txtXemAllVN"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginBottom="8dp"
                         android:paddingHorizontal="8dp"
                         android:paddingVertical="8dp"
                         android:text="Xem tất cả"
-                        android:textColor="#0040FF"
+                        android:textColor="#034C3C"
                         android:textSize="20sp"
                         android:gravity="center"
                         android:textStyle="italic" />

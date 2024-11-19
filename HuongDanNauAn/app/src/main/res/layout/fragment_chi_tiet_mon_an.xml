@@ -21,8 +21,9 @@
             <ImageView
                 android:id="@+id/imageDish"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="400dp"
                 android:scaleType="centerCrop"
+                android:src="@drawable/banner_home"
                 android:contentDescription="Hinh anh" />
             <ProgressBar
                 android:id="@+id/progressBar1"
@@ -39,10 +40,64 @@
                 android:textSize="32sp"
                 android:textStyle="bold"
                 android:paddingTop="8dp"
-                android:textColor="#090"
-                android:text="Ten"
-                android:gravity="center"
+                android:text="Loading..."
                 android:paddingBottom="8dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+
+                        android:src="@drawable/icon_reward"/>
+                    <TextView
+                        android:id="@+id/healthScore"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="18sp"
+                        android:layout_gravity="center"/>
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="5dp"
+                        android:src="@drawable/icon_time"/>
+                    <TextView
+                        android:id="@+id/preparationMinutes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="18sp"
+                        android:layout_gravity="center"/>
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="5dp"
+                        android:src="@drawable/icon_cooking"/>
+                    <TextView
+                        android:id="@+id/cookingMinutes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textSize="18sp"
+                        android:layout_gravity="center"/>
+                </LinearLayout>
+                <ImageView
+                    android:id="@+id/imgLove"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/icon_no_love"/>
+            </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
@@ -63,6 +118,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="24sp"
+                android:text="..."
                 android:paddingBottom="8dp" />
 
             <View
@@ -124,37 +180,6 @@
 
             <!-- Thông tin nấu nướng -->
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingBottom="8dp">
-
-                <!-- Thời gian chuẩn bị -->
-                <TextView
-                    android:id="@+id/preparationMinutes"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Thoi gian chuan bi:"
-                    android:textSize="22sp" />
-
-                <!-- Thời gian nấu nướng -->
-                <TextView
-                    android:id="@+id/cookingMinutes"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Thoi gian nau:"
-                    android:textSize="22sp" />
-
-                <!-- Điểm sức khỏe -->
-                <TextView
-                    android:id="@+id/healthScore"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Diem suc khoe:"
-                    android:textSize="22sp" />
-            </LinearLayout>
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -168,7 +193,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="22sp"
-                android:text="tom tat"
+                android:text="Tom tat"
                 android:paddingBottom="8dp" />
 
             <LinearLayout

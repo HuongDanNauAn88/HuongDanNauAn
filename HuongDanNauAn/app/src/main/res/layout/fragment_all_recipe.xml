@@ -9,7 +9,6 @@
 
     <!-- Tiêu đề -->
     <TextView
-        android:id="@+id/titleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Món Ngon Mỗi Ngày"
@@ -24,6 +23,75 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/txtSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/spinner_background"
+            android:hint="Content..."
+            android:inputType="text"
+            android:padding="8dp" />
+
+        <Button
+            android:id="@+id/btnSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:backgroundTint="@color/primary"
+            android:contentDescription="Nút tìm kiếm"
+            android:paddingHorizontal="20dp"
+            android:text="Search"
+            android:textColor="#fff" />
+    </LinearLayout>
+
+    <HorizontalScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingVertical="8dp"
+            android:gravity="center_vertical">
+
+            <Button
+                android:id="@+id/btnXoaLoc"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:padding="0dp"
+                android:backgroundTint="#F11000"
+                android:text="X"/>
+
+            <Spinner
+                android:id="@+id/dishTypeSpinner"
+                android:layout_marginLeft="8dp"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:background="@drawable/spinner_background"
+                android:paddingStart="8dp"
+                android:spinnerMode="dropdown"
+                android:paddingEnd="8dp" />
+            <Spinner
+                android:id="@+id/cuisineSpinner"
+                android:layout_marginLeft="8dp"
+                android:layout_width="120dp"
+                android:layout_height="40dp"
+                android:background="@drawable/spinner_background"
+                android:paddingStart="8dp"
+
+                android:paddingEnd="8dp" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
         <!-- Chọn loại món ăn -->
         <LinearLayout
             android:layout_width="match_parent"
@@ -32,15 +100,13 @@
             android:layout_weight="1">
 
             <TextView
+                android:id="@+id/resultCountText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Loại món: "
+                android:text="Kết quả: "
                 android:textSize="16sp" />
 
-            <Spinner
-                android:id="@+id/dishTypeSpinner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+
         </LinearLayout>
 
         <!-- Chọn vùng miền -->
@@ -49,19 +115,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:gravity="center"
-            android:layout_weight="1">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Vùng miền: "
-                android:textSize="16sp" />
-
-            <Spinner
-                android:id="@+id/cuisineSpinner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
+            android:layout_weight="1"/>
     </LinearLayout>
     <ProgressBar
         android:id="@+id/progressBar1"
@@ -80,19 +134,9 @@
         android:clipToPadding="false"
         android:scrollbars="vertical" />
 
-    <!-- Ghi chú kết quả tìm thấy -->
-    <TextView
-        android:id="@+id/resultCountText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Đã tìm thấy 100 kết quả"
-        android:textSize="14sp"
-        android:textColor="#888"
-        android:layout_gravity="center_horizontal"
-        android:paddingTop="12dp" />
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="60dp"
         android:textColor="#333"
         android:gravity="center"
         android:textSize="26sp"/>

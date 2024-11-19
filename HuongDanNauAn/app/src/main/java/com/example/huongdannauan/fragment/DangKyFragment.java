@@ -131,16 +131,16 @@ public class DangKyFragment extends Fragment {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-<<<<<<< HEAD
+
                             addUser(TenDN, email);
                             // Đăng ký thành công, quay về trang đăng nhập
                             openFragmentOfUser(new DangNhapFragment());
-=======
+
                             addUser(TenDN,email);
                             TrangThai.userEmail = email;
                             // Đăng ký thành công, chuyển hướng đến AccountFragment
                             openAccountFragment(new AccountFragment());
->>>>>>> main
+
                         } else {
                             // Nếu đăng ký thất bại, hiển thị thông báo cho người dùng
                             String errorMessage = task.getException() != null ? task.getException().getMessage() : "Đăng ký thất bại.";
