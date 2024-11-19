@@ -6,4 +6,18 @@
     </style>
 
     <style name="Theme.HuongDanNauAn" parent="Base.Theme.HuongDanNauAn" />
+
+    <!-- Theme cho Splash Screen -->
+    <style name="Theme.HuongDanNauAn.Splash" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Nền cho Splash Screen -->
+        <item name="android:windowBackground">@drawable/splash_background</item>
+
+        <!-- Ẩn Action Bar -->
+        <item name="windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+
+        <!-- Tùy chỉnh thanh trạng thái -->
+        <item name="android:statusBarColor" tools:targetApi="21">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item> <!-- Trắng chữ đen -->
+    </style>
 </resources>

@@ -80,7 +80,8 @@ public class DangKyFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_dang_ky, container, false);
-        dangNhap = (TextView) view.findViewById(R.id.txtDN); edTenDN = (EditText) view.findViewById(R.id.edtTenDN);
+        dangNhap = (TextView) view.findViewById(R.id.txtDN);
+
         edMail = (EditText) view.findViewById(R.id.edMail);
         edPas = (EditText) view.findViewById(R.id.edPass);
         edResetPass = (EditText) view.findViewById(R.id.edResetPass);
