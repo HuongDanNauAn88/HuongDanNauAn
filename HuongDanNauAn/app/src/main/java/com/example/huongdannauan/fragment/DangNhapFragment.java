@@ -1,5 +1,6 @@
 package com.example.huongdannauan.fragment;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -136,6 +137,17 @@ public class DangNhapFragment extends Fragment {
 
         if (email.isEmpty() || password.isEmpty()) {
             Toast.makeText(requireContext(), "Email và mật khẩu không thể để trống.", Toast.LENGTH_SHORT).show();
+            AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+            builder.setTitle("Thất bại");
+            builder.setMessage("Email và mật khẩu không thể để trống.");
+
+            // Nút xác nhận
+            builder.setPositiveButton("Đồng ý", (dialog, which) -> {
+
+            });
+            // Hiển thị AlertDialog
+            AlertDialog dialog = builder.create();
+            dialog.show();
             return; // Ngừng thực hiện nếu có trường rỗng
         }
 
@@ -160,9 +172,9 @@ public class DangNhapFragment extends Fragment {
                             TrangThai.userEmail = email;
 
                             User currentUser = new User(); // Initialize with empty values
-                        currentUser.setEmail(email);
-                        // Optionally set other fields as needed
-                        TrangThai.currentUser = currentUser; // Save the User object
+                            currentUser.setEmail(email);
+                            // Optionally set other fields as needed
+                            TrangThai.currentUser = currentUser; // Save the User object
 
 //                            // Hoặc lưu vào SharedPreferences để giữ lâu hơn
 //                            SharedPreferences sharedPreferences = getActivity().getSharedPreferences("UserPrefs", getContext().MODE_PRIVATE);
@@ -180,7 +192,17 @@ public class DangNhapFragment extends Fragment {
                             }
 
                         } else {
-                            openAccountFragment(new AccountFragment());
+                            AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                            builder.setTitle("Thất bại");
+                            builder.setMessage("Thông tin đăng nhập không đúng.");
+
+                            // Nút xác nhận
+                            builder.setPositiveButton("Đồng ý", (dialog, which) -> {
+
+                            });
+                            // Hiển thị AlertDialog
+                            AlertDialog dialog = builder.create();
+                            dialog.show();
                         }
                     }
 
