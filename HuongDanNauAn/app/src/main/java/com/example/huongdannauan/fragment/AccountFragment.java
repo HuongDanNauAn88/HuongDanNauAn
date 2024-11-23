@@ -1,6 +1,6 @@
 package com.example.huongdannauan.fragment;
 
-import static com.example.huongdannauan.fragment.ChinhSuaThongTinFragment.API_TOKEN;
+
 
 import android.net.Uri;
 import android.os.Bundle;
@@ -59,7 +59,7 @@ public class AccountFragment extends Fragment {
         userEmailTextView = view.findViewById(R.id.user_email);
         profileImageView = view.findViewById(R.id.profile_image);
 
-        userEmailTextView.setText(TrangThai.currentUser.getEmail());
+
         cnMonAnYeuThich = view.findViewById(R.id.CNMonAnYeuThich);
         cnTinTucDaLuu = view.findViewById(R.id.CNTinTucDaLuu);
         cnBinhLuanCuaToi = view.findViewById(R.id.CNBinhLuanCuaToi);
@@ -69,7 +69,6 @@ public class AccountFragment extends Fragment {
         // Xử lý sự kiện đăng xuất
         cnDangXuat.setOnClickListener(v -> {
             TrangThai.currentUser = null;
-            TrangThai.userEmail = "";
             openFragmentOfUser(cnDangXuat ,new DangNhapFragment(), true);
         });
 
@@ -86,14 +85,15 @@ public class AccountFragment extends Fragment {
     }
 
     private void getUserInfoByEmail() {
-        String emailToCheck = TrangThai.currentUser.getEmail();
-        if (emailToCheck == null || emailToCheck.isEmpty()) return;
+
 
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
                     String email = userSnapshot.child("email").getValue(String.class);
+                    String emailToCheck = TrangThai.userEmail;
+                    if (emailToCheck == null || emailToCheck.isEmpty()) return;
                     if (email != null && email.equals(emailToCheck)) {
                         String userName = userSnapshot.child("name").getValue(String.class);
                         String avatarUri = userSnapshot.child("avatar").getValue(String.class); // URL ảnh
@@ -134,7 +134,7 @@ public class AccountFragment extends Fragment {
                 .build();
 
         CloudflareApi cloudflareApi = retrofit.create(CloudflareApi.class);
-        String authHeader = "Bearer " + API_TOKEN;
+        String authHeader = "Bearer ";
 
         // Gọi API để lấy thông tin ảnh từ Cloudflare
         Call<ImageResponseModel> call = cloudflareApi.getImageDetails(authHeader, imageId);

@@ -89,7 +89,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
         });
         // Xử lý sự kiện khi nhấn nút trả lời
         holder.replyTextView.setOnClickListener(v -> {
-            if(TrangThai.userEmail.isEmpty()){
+            if(TrangThai.currentUser.getEmail().isEmpty()){
                 Toast.makeText(context, "Dang nhap de tra loi", Toast.LENGTH_SHORT).show();
 
                 Bundle args = new Bundle();
@@ -125,7 +125,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
             if (!replyContent.isEmpty()) {
                 // Tạo một đối tượng Reply mới
                 Reply reply = new Reply();
-                reply.setUserEmail(TrangThai.userEmail);
+                reply.setUserEmail(TrangThai.currentUser.getEmail());
                 reply.setContent(replyContent);
                 reply.setDate(TrangThai.getCurrentDateString());
                 reply.setLikes(0);
