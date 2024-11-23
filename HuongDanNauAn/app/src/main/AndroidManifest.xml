@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
 
     <application
         android:allowBackup="true"
@@ -13,6 +16,7 @@
         android:roundIcon="@drawable/icon_cooking"
         android:supportsRtl="true"
         android:theme="@style/Theme.HuongDanNauAn"
+        tools:replace="android:fullBackupContent"
         tools:targetApi="31">
         <!-- Splash Screen Activity -->
         <activity
