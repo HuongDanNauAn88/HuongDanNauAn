@@ -33,16 +33,16 @@
                 android:paddingBottom="12dp" />
 
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerViewFoodCategory"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingVertical="8dp"
-                android:background="@drawable/rounded_background1"
-                android:scrollbars="vertical" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewFoodCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@drawable/splash_background"
+        android:paddingVertical="8dp"
+        android:scrollbars="vertical" />
 
-            <TextView
+    <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Thử các món quốc tế?"

@@ -20,12 +20,23 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.huongdannauan.R;
+import com.example.huongdannauan.model.Recipe;
 import com.example.huongdannauan.model.TrangThai;
 import com.example.huongdannauan.model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -171,10 +182,29 @@ public class DangNhapFragment extends Fragment {
                         if (task.isSuccessful()) {
                             TrangThai.userEmail = email;
 
-                            User currentUser = new User(); // Initialize with empty values
-                            currentUser.setEmail(email);
-                            // Optionally set other fields as needed
-                            TrangThai.currentUser = currentUser; // Save the User object
+                            //Lấy id món ăn yêu thích và danh sách món ăn
+                            DatabaseReference userRef = FirebaseDatabase.getInstance().getReference("user");
+                            Query query = userRef.orderByChild("email").equalTo(TrangThai.userEmail);
+                            Log.e("BAOBAOSHOP email", TrangThai.userEmail);
+                            query.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot dataSnapshot) {
+                                    if (dataSnapshot.exists()) {
+                                        // Lặp qua các kết quả
+                                        for (DataSnapshot userSnapshot : dataSnapshot.getChildren()) {
+                                            TrangThai.currentUser = userSnapshot.getValue(User.class);
+                                        }
+                                    } else {
+                                        System.out.println("No user found with email: " + TrangThai.userEmail);
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+                                    System.out.println("Database error: " + databaseError.getMessage());
+                                }
+                            });
+
 
 //                            // Hoặc lưu vào SharedPreferences để giữ lâu hơn
 //                            SharedPreferences sharedPreferences = getActivity().getSharedPreferences("UserPrefs", getContext().MODE_PRIVATE);
@@ -245,6 +275,8 @@ public class DangNhapFragment extends Fragment {
                 });
 
     }
+
+
 
 
 }

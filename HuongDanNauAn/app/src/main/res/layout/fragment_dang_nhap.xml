@@ -18,15 +18,20 @@
             android:gravity="center"
             android:layout_gravity="center">
 
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@drawable/img_chef"/>
+
             <!-- Title -->
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Đăng Nhập"
+                android:text="Đăng nhập tài khoản"
                 android:textSize="30sp"
                 android:textStyle="bold"
                 android:textColor="#333"
-                android:layout_marginBottom="32dp" />
+                android:padding="16dp" />
 
 
             <!-- Email Input -->
@@ -40,10 +45,10 @@
                     android:id="@+id/textView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Email"
-                    android:textSize="18sp"
+                    android:layout_marginBottom="8dp"
+                    android:text="Email:"
                     android:textColor="#555"
-                    android:layout_marginBottom="8dp" />
+                    android:textSize="18sp" />
 
                 <EditText
                     android:id="@+id/edEmail"
@@ -67,7 +72,7 @@
                     android:id="@+id/textView1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Mật Khẩu"
+                    android:text="Mật Khẩu:"
                     android:textSize="18sp"
                     android:textColor="#555"
                     android:layout_marginBottom="8dp" />
@@ -106,7 +111,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Bạn chưa có tài khoản?"
-                    android:textSize="16sp" />
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/txtDK"
@@ -122,6 +127,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Quên Mật Khẩu?"
+                    android:textColor="@color/primary"
                     android:textSize="18sp" />
             </LinearLayout>
         </LinearLayout>

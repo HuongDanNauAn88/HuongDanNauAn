@@ -35,19 +35,7 @@ public class MainActivity extends AppCompatActivity {
         // Khởi tạo Firebase
         FirebaseApp.initializeApp(this);
 
-        // Kiểm tra trạng thái người dùng
-        FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
-
-        // Kiểm tra nếu đã lưu user hiện tại sau khi người dùng đăng nhập
-        if (currentUser != null) {
-            // Người dùng đã đăng nhập, tải AccountFragment
-            loadFragment(new AccountFragment());
-        } else {
-            // Nếu chưa đăng nhập, tải HomeFragment làm mặc định
-            if (savedInstanceState == null) {
-                loadFragment(new HomeFragment());
-            }
-        }
+        loadFragment(new HomeFragment());
 
         // Xử lý sự kiện chọn item trong BottomNavigationView
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -60,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                     selectedFragment = new HomeFragment();
                 } else if (itemId == R.id.nav_account) {
                     // Kiểm tra trạng thái người dùng để chuyển sang đúng fragment
-                    if (currentUser == null) {
+                    if (TrangThai.userEmail.isEmpty() || TrangThai.userEmail==null) {
                         // Nếu người dùng chưa đăng nhập, chuyển đến trang đăng nhập
                         selectedFragment = new DangNhapFragment();
                     } else {

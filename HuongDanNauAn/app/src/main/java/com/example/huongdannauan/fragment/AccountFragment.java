@@ -153,10 +153,13 @@ public class AccountFragment extends Fragment {
                     } else {
                         Log.e("Cloudflare", "Image fetch failed: " + imageResponse.getErrors());
                         Toast.makeText(getContext(), "Lỗi khi lấy ảnh từ Cloudflare", Toast.LENGTH_SHORT).show();
+                        profileImageView.setImageResource(R.drawable.avata1);
+
                     }
                 } else {
                     Log.e("Cloudflare", "Image fetch failed: " + response.message());
                     Toast.makeText(getContext(), "Lỗi khi gọi API Cloudflare", Toast.LENGTH_SHORT).show();
+                    profileImageView.setImageResource(R.drawable.avata1);
                 }
             }
 

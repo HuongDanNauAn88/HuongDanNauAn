@@ -34,7 +34,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="User Name"
-                    android:textSize="24sp"
+                    android:textSize="22sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -68,7 +68,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Bình luận của người dùng sẽ xuất hiện ở đây"
-            android:textSize="24sp" />
+            android:textSize="18sp" />
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

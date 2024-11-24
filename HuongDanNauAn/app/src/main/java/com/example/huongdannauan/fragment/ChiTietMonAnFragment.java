@@ -210,7 +210,7 @@ public class ChiTietMonAnFragment extends Fragment {
         for (String loaimonan : recipe.getDishTypes()) {
             TextView loaiView = new TextView(getContext());
             loaiView.setText("- " + loaimonan);
-            loaiView.setTextSize(22);
+            loaiView.setTextSize(18);
             loaimonanContainer.addView(loaiView);
         }
 
@@ -218,7 +218,7 @@ public class ChiTietMonAnFragment extends Fragment {
         for (Ingredient ingredient : recipe.getExtendedIngredients()) {
             TextView ingredientView = new TextView(getContext());
             ingredientView.setText("• " + ingredient.getName());
-            ingredientView.setTextSize(22);
+            ingredientView.setTextSize(18);
             ingredientsContainer.addView(ingredientView);
         }
 
@@ -228,7 +228,7 @@ public class ChiTietMonAnFragment extends Fragment {
                 if(!instruction.getName().isEmpty()){
                     TextView ingredientView = new TextView(getContext());
                     ingredientView.setText("• "+instruction.getName() + ": ");
-                    ingredientView.setTextSize(24);
+                    ingredientView.setTextSize(18);
                     ingredientView.setTextColor(Color.rgb(0, 153, 0));
                     huongdanNauContainer.addView(ingredientView);
                 }
@@ -236,7 +236,7 @@ public class ChiTietMonAnFragment extends Fragment {
                     for(Step step : instruction.getSteps()){
                         TextView ingredientView = new TextView(getContext());
                         ingredientView.setText("- Bước "+step.getNumber() + ": " + step.getStep());
-                        ingredientView.setTextSize(22);
+                        ingredientView.setTextSize(18);
                         huongdanNauContainer.addView(ingredientView);
                     }
                 }
@@ -290,7 +290,7 @@ public class ChiTietMonAnFragment extends Fragment {
                     newComment.put("content", edittextComment.getText().toString());
                     newComment.put("date", TrangThai.getCurrentDateString());
                     newComment.put("likes", 0);
-                    newComment.put("userEmail", TrangThai.userEmail);
+                    newComment.put("userEmail", TrangThai.currentUser.getName());
                     newComment.put("replies", new ArrayList<>()); // Không có phản hồi ban đầu
 
                     // Thêm comment mới vào danh sách

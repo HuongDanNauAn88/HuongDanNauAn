@@ -5,8 +5,6 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:layout_margin="8dp"
-    android:paddingTop="14dp"
-    android:paddingHorizontal="2dp"
     android:background="@drawable/rounded_background3"
     android:gravity="center">
 

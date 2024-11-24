@@ -66,7 +66,7 @@ public class AllRecipeFragment extends Fragment {
     private ProgressBar progressBar1;
     private TextView resultCountText, txtSearch;
     private Button btnXoaLoc, btnSearch;
-    private String locLoai="Tất cả loại", locVungMien="Thế giới";
+    private String locLoai="Tất cả loại", locVungMien="Xuất xứ";
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -241,7 +241,7 @@ public class AllRecipeFragment extends Fragment {
                 adapterSpinnerLoai.notifyDataSetChanged();
 
                 vungmienList.clear();
-                vungmienList.add("Thế giới");
+                vungmienList.add("Xuất xứ");
                 List<String> sortedVungMienList = new ArrayList<>(uniqueDishVungMien);
                 Collections.sort(sortedVungMienList);
                 vungmienList.addAll(sortedVungMienList);
@@ -261,15 +261,15 @@ public class AllRecipeFragment extends Fragment {
             return;
         }
         List<Recipe> filteredList = new ArrayList<>();
-        if(Lloai.equals("Tất cả loại") && Lvungmien.equals("Thế giới")){
+        if(Lloai.equals("Tất cả loại") && Lvungmien.equals("Xuất xứ")){
             filteredList = recipeList;
-        } else if(Lloai.equals("Tất cả loại") && !Lvungmien.equals("Thế giới")){
+        } else if(Lloai.equals("Tất cả loại") && !Lvungmien.equals("Xuất xứ")){
             for (Recipe recipe : recipeList) {
                 if (recipe.getCuisines() != null && recipe.getCuisines().contains(Lvungmien)) {
                     filteredList.add(recipe);
                 }
             }
-        }else if(!Lloai.equals("Tất cả loại") && Lvungmien.equals("Thế giới")){
+        }else if(!Lloai.equals("Tất cả loại") && Lvungmien.equals("Xuất xứ")){
             for (Recipe recipe : recipeList) {
                 if (recipe.getDishTypes() != null && recipe.getDishTypes().contains(Lloai)) {
                     filteredList.add(recipe);

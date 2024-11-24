@@ -89,7 +89,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
         });
         // Xử lý sự kiện khi nhấn nút trả lời
         holder.replyTextView.setOnClickListener(v -> {
-            if(TrangThai.currentUser.getEmail().isEmpty()){
+            if(TrangThai.userEmail.isEmpty() || TrangThai.userEmail==null){
                 Toast.makeText(context, "Dang nhap de tra loi", Toast.LENGTH_SHORT).show();
 
                 Bundle args = new Bundle();
@@ -125,7 +125,7 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
             if (!replyContent.isEmpty()) {
                 // Tạo một đối tượng Reply mới
                 Reply reply = new Reply();
-                reply.setUserEmail(TrangThai.currentUser.getEmail());
+                reply.setUserEmail(TrangThai.currentUser.getName());
                 reply.setContent(replyContent);
                 reply.setDate(TrangThai.getCurrentDateString());
                 reply.setLikes(0);
@@ -151,12 +151,12 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
                 View replyView = LayoutInflater.from(context).inflate(R.layout.reply_item, holder.repliesLayout, false);
                 TextView replyContentTV = replyView.findViewById(R.id.replyContentTextView);
                 TextView replyDateTV = replyView.findViewById(R.id.replyDateTextView);
-                TextView replyLikesTV = replyView.findViewById(R.id.replyLikesTextView);
+
                 TextView replyNameTV = replyView.findViewById(R.id.replyNameTextView);
                 replyNameTV.setText(reply.getUserEmail());
                 replyContentTV.setText(reply.getContent());
                 replyDateTV.setText(reply.getDate());
-                replyLikesTV.setText(String.valueOf(reply.getLikes()));
+
 
                 holder.repliesLayout.addView(replyView);
             }
@@ -171,13 +171,13 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentV
                 // Ánh xạ dữ liệu
                 TextView replyContent = replyView.findViewById(R.id.replyContentTextView);
                 TextView replyDate = replyView.findViewById(R.id.replyDateTextView);
-                TextView replyLikes = replyView.findViewById(R.id.replyLikesTextView);
+
                 TextView replyName = replyView.findViewById(R.id.replyNameTextView);
 
                 replyName.setText(reply.getUserEmail());
                 replyContent.setText(reply.getContent());
                 replyDate.setText(reply.getDate());
-                replyLikes.setText(String.valueOf(reply.getLikes()));
+
 
                 holder.repliesLayout.addView(replyView);
             }
