@@ -111,13 +111,13 @@
                 android:layout_height="wrap_content"
                 android:text="Xuất xứ:"
                 android:textStyle="bold"
-                android:textSize="22sp"
+                android:textSize="18sp"
                 android:paddingTop="8dp" />
             <TextView
                 android:id="@+id/cuisines"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="24sp"
+                android:textSize="18sp"
                 android:text="..."
                 android:paddingBottom="8dp" />
 
@@ -141,13 +141,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Loại:"
-                        android:textSize="22sp"
+                        android:textSize="18sp"
                         android:textStyle="bold" />
                     <LinearLayout
                         android:id="@+id/LoaiMonAnContainer"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="24sp"
+                        android:textSize="18sp"
                         android:orientation="vertical" />
                 </LinearLayout>
                 <LinearLayout
@@ -161,13 +161,13 @@
                         android:layout_height="wrap_content"
                         android:text="Nguyên liệu:"
                         android:textStyle="bold"
-                        android:textSize="22sp"
+                        android:textSize="18sp"
                         android:paddingTop="8dp" />
                     <LinearLayout
                         android:id="@+id/ingredientsContainer"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="24sp"
+                        android:textSize="18sp"
                         android:orientation="vertical" />
                 </LinearLayout>
             </LinearLayout>
@@ -184,7 +184,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Tổng quan:"
-                android:textSize="22sp"
+                android:textSize="18sp"
                 android:textStyle="bold"/>
 
             <!-- Tóm tắt -->
@@ -194,8 +194,14 @@
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 android:text="Tom tat"
+                android:justificationMode="inter_word"
                 android:paddingBottom="8dp" />
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="30dp"
+                android:background="@android:color/darker_gray"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -207,13 +213,13 @@
                     android:layout_height="wrap_content"
                     android:text="Hướng dẫn:"
                     android:textStyle="bold"
-                    android:textSize="22sp"
+                    android:textSize="18sp"
                     android:paddingTop="8dp" />
                 <LinearLayout
                     android:id="@+id/huongDanNauAnContainer"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="24sp"
+                    android:textSize="18sp"
                     android:orientation="vertical" />
             </LinearLayout>
 
@@ -235,7 +241,7 @@
                     android:layout_height="wrap_content"
                     android:text="Bình luận"
                     android:textStyle="bold"
-                    android:textSize="22sp"
+                    android:textSize="18sp"
                     android:paddingTop="8dp" />
 
                 <!-- Khu vực nhập bình luận -->

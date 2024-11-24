@@ -5,6 +5,8 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.graphics.text.LineBreaker;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,6 +15,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.Layout;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -229,6 +232,9 @@ public class ChiTietMonAnFragment extends Fragment {
                     TextView ingredientView = new TextView(getContext());
                     ingredientView.setText("• "+instruction.getName() + ": ");
                     ingredientView.setTextSize(18);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        ingredientView.setJustificationMode(LineBreaker.JUSTIFICATION_MODE_INTER_WORD);
+                    }
                     ingredientView.setTextColor(Color.rgb(0, 153, 0));
                     huongdanNauContainer.addView(ingredientView);
                 }
@@ -237,6 +243,9 @@ public class ChiTietMonAnFragment extends Fragment {
                         TextView ingredientView = new TextView(getContext());
                         ingredientView.setText("- Bước "+step.getNumber() + ": " + step.getStep());
                         ingredientView.setTextSize(18);
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                            ingredientView.setJustificationMode(LineBreaker.JUSTIFICATION_MODE_INTER_WORD);
+                        }
                         huongdanNauContainer.addView(ingredientView);
                     }
                 }

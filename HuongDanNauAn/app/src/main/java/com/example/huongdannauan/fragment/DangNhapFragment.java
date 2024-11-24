@@ -216,6 +216,9 @@ public class DangNhapFragment extends Fragment {
                             if (args != null && "ChiTietMonAnFragment".equals(args.getString("return_fragment"))) {
                                 // Quay lại Fragment Món ăn
                                 openAccountFragment(ChiTietMonAnFragment.newInstance(args.getString(("idmonan")), ""));
+                            }else if (args != null && "BlogDetailFragment".equals(args.getString("return_fragment"))) {
+                                // Quay lại Fragment Món ăn
+                                openAccountFragment(BlogDetailFragment.newInstance(args.getString(("idTinTuc")), ""));
                             } else {
                                 // Nếu không, mở Fragment tài khoản như mặc định
                                 openAccountFragment(new AccountFragment());

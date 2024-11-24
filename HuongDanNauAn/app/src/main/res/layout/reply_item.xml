@@ -4,6 +4,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:paddingTop="4dp"
+    android:background="@drawable/rounded_background1"
     android:paddingBottom="4dp">
 
     <!-- Avatar và thông tin người bình luận -->
@@ -35,7 +36,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="User Name"
-                    android:textSize="22sp"
+                    android:textSize="18sp"
                     android:textStyle="bold" />
 
                 <TextView
@@ -43,7 +44,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="2024-10-17"
-                    android:textSize="16sp"
+                    android:textSize="14sp"
                     android:textColor="#888888" />
             </LinearLayout>
 
