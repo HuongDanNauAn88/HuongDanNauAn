@@ -105,7 +105,9 @@ public class AccountFragment extends Fragment {
                         if (avatarUri != null && !avatarUri.isEmpty()) {
                             // Nếu URL ảnh có sẵn từ Firebase
                             Glide.with(getContext())
-                                    .load(avatarUri)  // URL ảnh từ Firebase
+                                    .load(avatarUri)
+                                    .placeholder(R.drawable.icon_loading) // Ảnh hiển thị khi đang tải
+                                    .error(R.drawable.icon_error)           // Ảnh hiển thị khi lỗi tải
                                     .into(profileImageView);
                         } else {
                             // Nếu không có avatar, gọi API Cloudflare để lấy lại ảnh (nếu cần)
@@ -149,7 +151,10 @@ public class AccountFragment extends Fragment {
                         // Sử dụng Glide để tải ảnh
                         Glide.with(getContext())
                                 .load(imageUrl)
+                                .placeholder(R.drawable.icon_loading) // Ảnh hiển thị khi đang tải
+                                .error(R.drawable.icon_error)           // Ảnh hiển thị khi lỗi tải
                                 .into(profileImageView);
+
                     } else {
                         Log.e("Cloudflare", "Image fetch failed: " + imageResponse.getErrors());
                         Toast.makeText(getContext(), "Lỗi khi lấy ảnh từ Cloudflare", Toast.LENGTH_SHORT).show();
@@ -167,6 +172,7 @@ public class AccountFragment extends Fragment {
             public void onFailure(Call<ImageResponseModel> call, Throwable t) {
                 Log.e("Cloudflare", "API call failed: " + t.getMessage());
                 Toast.makeText(getContext(), "Lỗi kết nối Cloudflare", Toast.LENGTH_SHORT).show();
+                profileImageView.setImageResource(R.drawable.avata1);
             }
         });
     }

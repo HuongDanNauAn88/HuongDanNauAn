@@ -20,6 +20,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.bumptech.glide.Glide;
 import com.cloudinary.utils.ObjectUtils;
@@ -230,6 +231,7 @@ public class ChinhSuaThongTinFragment extends Fragment {
                                 });
                     }
                 }
+                openAccountFragment(new AccountFragment());
             }
 
             @Override
@@ -237,6 +239,19 @@ public class ChinhSuaThongTinFragment extends Fragment {
                 Toast.makeText(getContext(), "Lỗi khi kiểm tra email: " + databaseError.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void openAccountFragment(Fragment fragment) {
+        FragmentTransaction transaction = requireActivity().getSupportFragmentManager().beginTransaction();
+
+        if (getActivity() != null) {
+            Log.d("DangNhapFragment", "Opening Account Fragment");
+            transaction.replace(R.id.fragment_container, fragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
+        } else {
+            Log.e("DangNhapFragment", "Activity is null, cannot open fragment");
+        }
     }
 
 }
