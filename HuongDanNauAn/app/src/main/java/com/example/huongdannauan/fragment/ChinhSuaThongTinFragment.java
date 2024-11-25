@@ -45,7 +45,7 @@ public class ChinhSuaThongTinFragment extends Fragment {
     private EditText edtName, edtEmail, edtAge;
     private RadioGroup radioGroupGender;
     private Button btnSave, btnSelectImage;
-
+    String avataNOW="";
     private String uploadedImageUrl; // URL của ảnh đã upload
     private DatabaseReference mDatabase; // Firebase Database reference
 
@@ -128,6 +128,7 @@ public class ChinhSuaThongTinFragment extends Fragment {
                                     .load(user.getAvatar())
                                     .into(imgView);
 
+                            avataNOW = user.getAvatar();
                             // Không cho sửa email
                             edtEmail.setEnabled(false);
                         }
@@ -147,6 +148,9 @@ public class ChinhSuaThongTinFragment extends Fragment {
     private void uploadImageToCloudinary(File imageFile) {
         new Thread(() -> {
             try {
+                if (imageFile == null || !imageFile.exists()) {
+                    Toast.makeText(getContext(), "File ảnh không tồn tại hoặc null!", Toast.LENGTH_SHORT).show();
+                }
                 // Upload ảnh
                 Map uploadResult = CloudinaryUtils.getInstance().uploader().upload(imageFile, ObjectUtils.emptyMap());
                 uploadedImageUrl = uploadResult.get("url").toString();
@@ -185,7 +189,7 @@ public class ChinhSuaThongTinFragment extends Fragment {
 
 
         // Kiểm tra thông tin đầu vào
-        if (name.isEmpty() || email.isEmpty() || age.isEmpty() || uploadedImageUrl == null) {
+        if (name.isEmpty() || email.isEmpty() || age.isEmpty() || imgView.getDrawable() == null) {
             Toast.makeText(getContext(), "Vui lòng nhập đủ thông tin và upload ảnh!", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -206,7 +210,10 @@ public class ChinhSuaThongTinFragment extends Fragment {
                             user.setEmail(email);
                             user.setAge(age);
                             user.setGender(gender);
-                            user.setAvatar(uploadedImageUrl);
+                            if(avataNOW.isEmpty())
+                            {
+                                user.setAvatar(uploadedImageUrl);
+                            }else user.setAvatar(avataNOW);
 
                             // Cập nhật lại thông tin trong Firebase
                             mDatabase.child(userId).setValue(user)
